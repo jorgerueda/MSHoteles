@@ -18,6 +18,7 @@ public class GUIAltaCliente {
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	private Object jButton;
+	int caca;
 
 	/** 
 	 * @return el jButton
