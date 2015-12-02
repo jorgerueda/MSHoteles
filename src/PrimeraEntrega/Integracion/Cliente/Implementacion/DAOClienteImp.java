@@ -17,7 +17,7 @@ public class DAOClienteImp implements DAOCliente, DAOCliente {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void altaCliente() {
+	public void altaCliente(int caca) {
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
 
