@@ -8,7 +8,7 @@ import javax.swing.JButton;
 /** 
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->
- * @author Andrea
+ * @author Andrea y los demÃ¡s
  * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
 public class GUIAltaCliente {
@@ -18,6 +18,7 @@ public class GUIAltaCliente {
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	private Object jButton;
+	int caca;
 
 	/** 
 	 * @return el jButton
@@ -73,7 +74,7 @@ public class GUIAltaCliente {
 	 */
 	public void panelAltaCliente() {
 		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
+		// TODO Apï¿½ndice de mï¿½todo generado automï¿½ticamente
 
 		// end-user-code
 	}
@@ -85,7 +86,7 @@ public class GUIAltaCliente {
 	 */
 	public void validarDNI() {
 		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
+		// TODO Apï¿½ndice de mï¿½todo generado automï¿½ticamente
 
 		// end-user-code
 	}
