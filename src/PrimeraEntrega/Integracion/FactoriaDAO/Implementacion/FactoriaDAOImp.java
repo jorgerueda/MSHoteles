@@ -11,7 +11,7 @@ import PrimeraEntrega.Integracion.FactoriaDAO.FactoriaDAO;
  * @author Andrea
  * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
-public class FactoriaDAOImp extends FactoriaDAO {
+public abstract class FactoriaDAOImp extends FactoriaDAO {
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
@@ -42,10 +42,7 @@ public class FactoriaDAOImp extends FactoriaDAO {
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	public void getDAOCliente() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
+		return new DAOClienteImp();
 	}
 
 	/** 
@@ -54,10 +51,7 @@ public class FactoriaDAOImp extends FactoriaDAO {
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	public void getDAOHabitacion() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
+		return new DAOHabitacionImp();
 	}
 
 	/** 
@@ -66,9 +60,6 @@ public class FactoriaDAOImp extends FactoriaDAO {
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	public void getDAOReserva() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
+		return new DAOReservaImp();
 	}
 }
