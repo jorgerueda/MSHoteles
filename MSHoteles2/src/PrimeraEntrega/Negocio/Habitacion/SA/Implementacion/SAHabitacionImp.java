@@ -3,7 +3,12 @@
  */
 package PrimeraEntrega.Negocio.Habitacion.SA.Implementacion;
 
+import PrimeraEntrega.Integracion.FactoriaDAO.FactoriaDAO;
+import PrimeraEntrega.Integracion.Habitacion.DAOHabitacion;
+import PrimeraEntrega.Integracion.Transaccion.Transaccion;
+import PrimeraEntrega.Integracion.TransactionManager.TransactionManager;
 import PrimeraEntrega.Negocio.Habitacion.SA.SAHabitacion;
+import PrimeraEntrega.Negocio.Transfer.TransferHabitacion;
 
 /** 
  * <!-- begin-UML-doc -->
@@ -37,7 +42,7 @@ public class SAHabitacionImp implements SAHabitacion {
 			transaction.commit();
 		}else if (esta){ // esta
 			// Si no esta activo
-			if (!TCliente.isActivo()){
+			if (!THabitacion.isActivo()){
 				THabitacion.setActivo(true);
 				correcto = daoHabitacion.modificarHabitacion(THabitacion);
 				transaction.commit();

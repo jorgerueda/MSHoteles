@@ -3,6 +3,8 @@
  */
 package PrimeraEntrega.Negocio.Reserva.SA;
 
+import PrimeraEntrega.Negocio.Transfer.TransferReserva;
+
 /** 
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->
@@ -15,21 +17,21 @@ public interface SAReserva {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public Booleand nuevaReserva(TransferReserva TReserva);
+	public Boolean nuevaReserva(TransferReserva TReserva);
 
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public Booleand anadirHabitacion(TransferReserva TReserva);
+	public Boolean anadirHabitacion(TransferReserva TReserva);
 
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public Booleand quitarHabitacion(TransferReserva TReserva);
+	public Boolean quitarHabitacion(TransferReserva TReserva);
 
 	/** 
 	 * <!-- begin-UML-doc -->

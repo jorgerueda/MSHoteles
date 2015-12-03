@@ -3,6 +3,11 @@
  */
 package PrimeraEntrega.Negocio.FactoriaSA;
 
+import PrimeraEntrega.Negocio.Cliente.SA.SACliente;
+import PrimeraEntrega.Negocio.FactoriaSA.Implementacion.FactoriaSAImp;
+import PrimeraEntrega.Negocio.Habitacion.SA.SAHabitacion;
+import PrimeraEntrega.Negocio.Reserva.SA.SAReserva;
+
 /** 
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->
@@ -15,7 +20,7 @@ public abstract class FactoriaSA {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private static FactoriaSa instancia;
+	private static FactoriaSA instancia;
 
 	/** 
 	 * @return el instancia
@@ -24,7 +29,7 @@ public abstract class FactoriaSA {
 	public Object getInstancia() {
 
 		if (instancia == null)
-			instancia = new FactoriaSaImp();
+			instancia = new FactoriaSAImp();
 		
 		return instancia;
 	}

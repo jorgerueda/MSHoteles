@@ -5,6 +5,9 @@ package PrimeraEntrega.Negocio.Cliente.SA.Implementacion;
 
 import PrimeraEntrega.Negocio.Cliente.SA.SACliente;
 import PrimeraEntrega.Negocio.Transfer.TransferCliente;
+
+import java.util.List;
+
 import PrimeraEntrega.Integracion.Cliente.DAOCliente;
 import PrimeraEntrega.Integracion.FactoriaDAO.FactoriaDAO;
 import PrimeraEntrega.Integracion.Transaccion.Transaccion;
@@ -152,9 +155,10 @@ public class SAClienteImp implements SACliente {
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
+	 * @return 
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void modificarCliente(TransferCliente TCliente) {
+	public Boolean modificarCliente(TransferCliente TCliente) {
 
 		Boolean esta = false;
 		Boolean correcto = false;
@@ -191,10 +195,12 @@ public class SAClienteImp implements SACliente {
 
 	/** 
 	 * (sin Javadoc)
+	 * @return 
 	 * @see SACliente#mostrarClientes()
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void mostrarClientes() {
+	public List<TransferCliente> mostrarClientes() {
+		return null;
 		// begin-user-code
 		// TODO Ap�ndice de m�todo generado autom�ticamente
 

@@ -3,7 +3,12 @@
  */
 package PrimeraEntrega.Negocio.Reserva.SA.Implementacion;
 
+import PrimeraEntrega.Integracion.FactoriaDAO.FactoriaDAO;
+import PrimeraEntrega.Integracion.Reserva.DAOReserva;
+import PrimeraEntrega.Integracion.Transaccion.Transaccion;
+import PrimeraEntrega.Integracion.TransactionManager.TransactionManager;
 import PrimeraEntrega.Negocio.Reserva.SA.SAReserva;
+import PrimeraEntrega.Negocio.Transfer.TransferReserva;
 
 /** 
  * <!-- begin-UML-doc -->
@@ -17,7 +22,7 @@ public class SAReservaImp implements SAReserva {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public Booleand nuevaReserva(TransferReserva TReserva) {
+	public Boolean nuevaReserva(TransferReserva TReserva) {
 		Boolean esta = false;
 		Boolean correcto = false;
 		

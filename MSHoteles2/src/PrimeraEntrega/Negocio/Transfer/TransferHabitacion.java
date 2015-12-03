@@ -9,7 +9,7 @@ package PrimeraEntrega.Negocio.Transfer;
  * @author Andrea
  * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
-public class TranserHabitacion {
+public class TransferHabitacion {
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
