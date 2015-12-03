@@ -3,69 +3,45 @@
  */
 package PrimeraEntrega.Negocio.Transfer;
 
+import java.sql.Date;
+
 /** 
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->
  * @author Andrea
  * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
-public class TransferHabitacion {
+public class TransferReserva {
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	protected int ID_Habitacion;
+	protected int ID_Reserva;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	protected int Piso;
+	protected float Precio;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	protected int Numero;
+	protected Date FechaEntrada;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	protected int Tipo;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	protected boolean Ocupado;
+	protected Date FechaSalida;
 
 	/** 
-	 * @return el Ocupado
+	 * @return el ID_Reserva
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public boolean isOcupado() {
-		// begin-user-code
-		return Ocupado;
-		// end-user-code
-	}
-
-	/** 
-	 * @param Ocupado el Ocupado a establecer
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void setOcupado(boolean Ocupado) {
-		// begin-user-code
-		this.Ocupado = Ocupado;
-		// end-user-code
-	}
-
-	/** 
-	 * @return el ID_Habitacion
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public int getID_Habitacion() {
+	public int getID_Reserva() {
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
 
@@ -73,20 +49,20 @@ public class TransferHabitacion {
 	}
 
 	/** 
-	 * @param ID_Habitacion el ID_Habitacion a establecer
+	 * @param ID_Reserva el ID_Reserva a establecer
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void setID_Habitacion(int ID_Habitacion) {
+	public void setID_Reserva(int ID_Reserva) {
 		// begin-user-code
-		this.ID_Habitacion = ID_Habitacion;
+		this.ID_Reserva = ID_Reserva;
 		// end-user-code
 	}
 
 	/** 
-	 * @return el Numero
+	 * @return el Precio
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public int getNumero() {
+	public float getPrecio() {
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
 
@@ -94,20 +70,20 @@ public class TransferHabitacion {
 	}
 
 	/** 
-	 * @param Numero el Numero a establecer
+	 * @param Precio el Precio a establecer
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void setNumero(int Numero) {
+	public void setPrecio(float Precio) {
 		// begin-user-code
-		this.Numero = Numero;
+		this.Precio = Precio;
 		// end-user-code
 	}
 
 	/** 
-	 * @return el Piso
+	 * @return el FechaEntrada
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public int getPiso() {
+	public Date getFechaEntrada() {
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
 
@@ -115,20 +91,20 @@ public class TransferHabitacion {
 	}
 
 	/** 
-	 * @param Piso el Piso a establecer
+	 * @param FechaEntrada el FechaEntrada a establecer
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void setPiso(int Piso) {
+	public void setFechaEntrada(Date FechaEntrada) {
 		// begin-user-code
-		this.Piso = Piso;
+		this.FechaEntrada = FechaEntrada;
 		// end-user-code
 	}
 
 	/** 
-	 * @return el Tipo
+	 * @return el FechaSalida
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public int getTipo() {
+	public Date getFechaSalida() {
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
 
@@ -136,12 +112,12 @@ public class TransferHabitacion {
 	}
 
 	/** 
-	 * @param Tipo el Tipo a establecer
+	 * @param FechaSalida el FechaSalida a establecer
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void setTipo(int Tipo) {
+	public void setFechaSalida(Date FechaSalida) {
 		// begin-user-code
-		this.Tipo = Tipo;
+		this.FechaSalida = FechaSalida;
 		// end-user-code
 	}
 
@@ -150,7 +126,7 @@ public class TransferHabitacion {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void setNumero() {
+	public void setPrecio() {
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
 
@@ -162,7 +138,7 @@ public class TransferHabitacion {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void setOcupado() {
+	public void setFechaEntrada() {
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
 
@@ -174,19 +150,7 @@ public class TransferHabitacion {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void setPiso() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
-	}
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void setTipo() {
+	public void setFechaSalida() {
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
 

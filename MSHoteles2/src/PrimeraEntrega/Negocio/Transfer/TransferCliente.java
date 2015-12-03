@@ -9,63 +9,37 @@ package PrimeraEntrega.Negocio.Transfer;
  * @author Andrea
  * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
-public class TransferHabitacion {
+public class TransferCliente {
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	protected int ID_Habitacion;
+	protected int ID_Cliente;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	protected int Piso;
+	protected String Nombre;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	protected int Numero;
+	protected String Apellidos;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	protected int Tipo;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	protected boolean Ocupado;
+	protected String Dni;
 
 	/** 
-	 * @return el Ocupado
+	 * @return el ID_Cliente
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public boolean isOcupado() {
-		// begin-user-code
-		return Ocupado;
-		// end-user-code
-	}
-
-	/** 
-	 * @param Ocupado el Ocupado a establecer
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void setOcupado(boolean Ocupado) {
-		// begin-user-code
-		this.Ocupado = Ocupado;
-		// end-user-code
-	}
-
-	/** 
-	 * @return el ID_Habitacion
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public int getID_Habitacion() {
+	public int getID_Cliente() {
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
 
@@ -73,75 +47,12 @@ public class TransferHabitacion {
 	}
 
 	/** 
-	 * @param ID_Habitacion el ID_Habitacion a establecer
+	 * @param ID_Cliente el ID_Cliente a establecer
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void setID_Habitacion(int ID_Habitacion) {
+	public void setID_Cliente(int ID_Cliente) {
 		// begin-user-code
-		this.ID_Habitacion = ID_Habitacion;
-		// end-user-code
-	}
-
-	/** 
-	 * @return el Numero
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public int getNumero() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
-	}
-
-	/** 
-	 * @param Numero el Numero a establecer
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void setNumero(int Numero) {
-		// begin-user-code
-		this.Numero = Numero;
-		// end-user-code
-	}
-
-	/** 
-	 * @return el Piso
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public int getPiso() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
-	}
-
-	/** 
-	 * @param Piso el Piso a establecer
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void setPiso(int Piso) {
-		// begin-user-code
-		this.Piso = Piso;
-		// end-user-code
-	}
-
-	/** 
-	 * @return el Tipo
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public int getTipo() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
-	}
-
-	/** 
-	 * @param Tipo el Tipo a establecer
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void setTipo(int Tipo) {
-		// begin-user-code
-		this.Tipo = Tipo;
+		this.ID_Cliente = ID_Cliente;
 		// end-user-code
 	}
 
@@ -150,7 +61,7 @@ public class TransferHabitacion {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void setNumero() {
+	public void setNombre() {
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
 
@@ -162,7 +73,7 @@ public class TransferHabitacion {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void setOcupado() {
+	public void setApellidos() {
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
 
@@ -174,7 +85,7 @@ public class TransferHabitacion {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void setPiso() {
+	public void setDni() {
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
 
@@ -182,14 +93,75 @@ public class TransferHabitacion {
 	}
 
 	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
+	 * @return el Nombre
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void setTipo() {
+	public String getNombre() {
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
 
 		// end-user-code
+	}
+
+	/** 
+	 * @param Nombre el Nombre a establecer
+	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	public void setNombre(String Nombre) {
+		// begin-user-code
+		this.Nombre = Nombre;
+		// end-user-code
+	}
+
+	/** 
+	 * @return el Apellidos
+	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	public String getApellidos() {
+		// begin-user-code
+		// TODO Apéndice de método generado automáticamente
+
+		// end-user-code
+	}
+
+	/** 
+	 * @param Apellidos el Apellidos a establecer
+	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	public void setApellidos(String Apellidos) {
+		// begin-user-code
+		this.Apellidos = Apellidos;
+		// end-user-code
+	}
+
+	/** 
+	 * @return el Dni
+	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	public String getDni() {
+		// begin-user-code
+		// TODO Apéndice de método generado automáticamente
+
+		// end-user-code
+	}
+
+	/** 
+	 * @param Dni el Dni a establecer
+	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	public void setDni(String Dni) {
+		// begin-user-code
+		this.Dni = Dni;
+		// end-user-code
+	}
+
+	public int getDescuento() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int getPuntos_Acumulados() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
