@@ -4,6 +4,7 @@
 package PrimeraEntrega.Presentacion.Reserva;
 
 import javax.swing.JButton;
+import javax.swing.JComponent;
 
 /** 
  * <!-- begin-UML-doc -->
@@ -73,8 +74,13 @@ public class GUIAnadirHabitacion {
 	 */
 	public static void panelAnadirHabitacion() {
 		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
+		// TODO Apï¿½ndice de mï¿½todo generado automï¿½ticamente
 
 		// end-user-code
+	}
+
+	public static JComponent obtenerInstancia() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

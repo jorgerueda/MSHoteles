@@ -4,6 +4,7 @@
 package PrimeraEntrega.Presentacion.Cliente;
 
 import javax.swing.JButton;
+import javax.swing.JComponent;
 
 /** 
  * <!-- begin-UML-doc -->
@@ -89,5 +90,10 @@ public class GUIAltaCliente {
 		// TODO Ap�ndice de m�todo generado autom�ticamente
 
 		// end-user-code
+	}
+
+	public static JComponent obtenerInstancia() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

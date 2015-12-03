@@ -9,11 +9,22 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import PrimeraEntrega.Presentacion.Cliente.GUIAltaCliente;
+import PrimeraEntrega.Presentacion.Cliente.GUIBajaCliente;
+import PrimeraEntrega.Presentacion.Cliente.GUIModificarCliente;
+import PrimeraEntrega.Presentacion.Cliente.GUIMostrarCliente;
+import PrimeraEntrega.Presentacion.Habitacion.GUIAltaHabitacion;
+import PrimeraEntrega.Presentacion.Habitacion.GUIMostrarHabitacion;
+import PrimeraEntrega.Presentacion.Reserva.GUIAnadirHabitacion;
+import PrimeraEntrega.Presentacion.Reserva.GUIMostrarReserva;
+import PrimeraEntrega.Presentacion.Reserva.GUINuevaReserva;
+import PrimeraEntrega.Presentacion.Reserva.GUIQuitarHabitacion;
+
 
 
 /**
  * 
- * @author Daniel 2.0
+ * @author 
  */
 public class PanelPrincipal extends javax.swing.JFrame {
 
@@ -36,20 +47,14 @@ public class PanelPrincipal extends javax.swing.JFrame {
 		botonBorrarCliente = new javax.swing.JMenuItem();
 		botonModifcarCliente = new javax.swing.JMenuItem();
 		botonMostrarCliente = new javax.swing.JMenuItem();
-		botonMostrarClientes = new javax.swing.JMenuItem();
 		pestanaHabitacion = new javax.swing.JMenu();
 		botonNuevaHabitacion = new javax.swing.JMenuItem();
-		botonBorrarHabitacion = new javax.swing.JMenuItem();
-		botonModificarHabitacion = new javax.swing.JMenuItem();
 		botonMostrarHabitacion = new javax.swing.JMenuItem();
-		botonMostrarHabitaciones = new javax.swing.JMenuItem();
 		pestanaReserva = new javax.swing.JMenu();
 		botonNuevaReserva = new javax.swing.JMenuItem();
-		botonBorrarReserva = new javax.swing.JMenuItem();
-		botonModificarReserva = new javax.swing.JMenuItem();
+		botonAnadirHabitacion = new javax.swing.JMenuItem();
+		botonQuitarHabitacion = new javax.swing.JMenuItem();
 		botonMostrarReserva = new javax.swing.JMenuItem();
-		botonMostrarReservas = new javax.swing.JMenuItem();
-		botonAsignarReserva = new javax.swing.JMenuItem();
 		pestanaEmpleado = new javax.swing.JMenu();
 		botonNuevoEmpleado = new javax.swing.JMenuItem();
 		botonBajaEmpleado = new javax.swing.JMenuItem();
@@ -67,7 +72,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
 		botonMostrarTarea = new javax.swing.JMenuItem();
 		botonMostrarTareas = new javax.swing.JMenuItem();
 		
-		botonMostrarClientesReservasSuperadas = new javax.swing.JMenuItem();
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 		// setIconImage(Constants.icono);
@@ -115,21 +119,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
 		});
 		pestanaCliente.add(botonMostrarCliente);
 
-		botonMostrarClientes.setText("Mostrar Clientes");
-		botonMostrarClientes.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				botonMostrarClientesActionPerformed(evt);
-			}
-		});
-		pestanaCliente.add(botonMostrarClientes);
-		
-		botonMostrarClientesReservasSuperadas.setText("Mostrar Clientes Superan Reservas");
-		botonMostrarClientesReservasSuperadas.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				botonMostrarClientesReservasSuperadasActionPerformed(evt);
-			}
-		});
-		pestanaCliente.add(botonMostrarClientesReservasSuperadas);
 
 		jMenuBar1.add(pestanaCliente);
 
@@ -142,22 +131,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
 					}
 				});
 		pestanaHabitacion.add(botonNuevaHabitacion);
-
-		botonBorrarHabitacion.setText("Borrar Habitacion");
-		pestanaHabitacion.add(botonBorrarHabitacion);
-		botonBorrarHabitacion.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				botonBorrarHabitacionActionPerformed(evt);
-			}
-		});
-
-		botonModificarHabitacion.setText("Modificar Habitacion");
-		pestanaHabitacion.add(botonModificarHabitacion);
-		botonModificarHabitacion.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				botonModificarHabitacionActionPerformed(evt);
-			}
-		});
+	
+	
 
 		botonMostrarHabitacion.setText("Mostrar Habitacion");
 		pestanaHabitacion.add(botonMostrarHabitacion);
@@ -167,14 +142,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
 			}
 		});
 
-		botonMostrarHabitaciones.setText("Mostrar Habitaciones");
-		pestanaHabitacion.add(botonMostrarHabitaciones);
-		botonMostrarHabitaciones.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				botonMostrarHabitacionesActionPerformed(evt);
-			}
-		});
-
+		
 		jMenuBar1.add(pestanaHabitacion);
 
 		pestanaReserva.setText("Reserva");
@@ -187,21 +155,21 @@ public class PanelPrincipal extends javax.swing.JFrame {
 		});
 		pestanaReserva.add(botonNuevaReserva);
 
-		botonBorrarReserva.setText("Borrar Reserva");
-		botonBorrarReserva.addActionListener(new java.awt.event.ActionListener() {
+		botonAnadirHabitacion.setText("Anadir Habitacion");
+		botonAnadirHabitacion.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				botonBorrarReservaActionPerformed(evt);
+				botonAnadirHabitacionActionPerformed(evt);
 			}
 		});
-		pestanaReserva.add(botonBorrarReserva);
+		pestanaReserva.add(botonAnadirHabitacion);
 
-		botonModificarReserva.setText("Modificar Reserva");
-		botonModificarReserva.addActionListener(new java.awt.event.ActionListener() {
+		botonQuitarHabitacion.setText("Quitar Habitacion");
+		botonQuitarHabitacion.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				botonModificarReservaActionPerformed(evt);
+				botonQuitarHabitacionActionPerformed(evt);
 			}
 		});
-		pestanaReserva.add(botonModificarReserva);
+		pestanaReserva.add(botonQuitarHabitacion);
 
 		botonMostrarReserva.setText("Mostrar Reserva");
 		botonMostrarReserva.addActionListener(new java.awt.event.ActionListener() {
@@ -211,21 +179,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
 		});
 		pestanaReserva.add(botonMostrarReserva);
 
-		botonMostrarReservas.setText("Mostrar Reservas");
-		botonMostrarReservas.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				botonMostrarReservasActionPerformed(evt);
-			}
-		});
-		pestanaReserva.add(botonMostrarReservas);
 		
-		botonAsignarReserva.setText("Asignar Reserva");
-		botonAsignarReserva.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				botonAsignarReservaActionPerformed(evt);
-			}
-		});
-		pestanaReserva.add(botonAsignarReserva);
+		
+		
 
 		jMenuBar1.add(pestanaReserva);
 
@@ -382,144 +338,98 @@ public class PanelPrincipal extends javax.swing.JFrame {
 		pack();
 	}// </editor-fold>
 
-	/*
+	
 	//ACCIONES HABITACIONES
 	private void botonNuevaHabitacionActionPerformed(java.awt.event.ActionEvent evt) {
-		NuevaHabitacion.obtenerInstancia().setVisible(true);
-	}
-	
-	private void botonBorrarHabitacionActionPerformed(java.awt.event.ActionEvent evt) {
-		BorrarHabitacion.obtenerInstancia().setVisible(true);
-	
-	}
-	
-	private void botonModificarHabitacionActionPerformed(java.awt.event.ActionEvent evt) {
-		ModificarHabitacion.obtenerInstancia().setVisible(true);
+		GUIAltaHabitacion.obtenerInstancia().setVisible(true);
 	}
 	
 	private void botonMostrarHabitacionActionPerformed(java.awt.event.ActionEvent evt) {
-		MostrarHabitacion.obtenerInstancia().setVisible(true);
+		GUIMostrarHabitacion.obtenerInstancia().setVisible(true);
 	}
 	
-	private void botonMostrarHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {
-		MostrarHabitaciones.obtenerInstancia().mostrar();
-		MostrarHabitaciones.obtenerInstancia().setVisible(true);
-	}
 	
 	//ACCIONES ClienteS
 	private void botonNuevoClienteActionPerformed(java.awt.event.ActionEvent evt) {
-		NuevoCliente.obtenerInstancia().setVisible(true);
+		GUIAltaCliente.obtenerInstancia().setVisible(true);
 	}
 	
 	private void botonBorrarClienteActionPerformed(java.awt.event.ActionEvent evt) {
-		BorrarCliente.obtenerInstancia().setVisible(true);
+		GUIBajaCliente.obtenerInstancia().setVisible(true);
 	}
 	
 	private void botonModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {
-		ModificarCliente.obtenerInstancia().setVisible(true);
+		GUIModificarCliente.obtenerInstancia().setVisible(true);
 	}
 	
 	private void botonMostrarClienteActionPerformed(java.awt.event.ActionEvent evt) {
-		MostrarCliente.obtenerInstancia().setVisible(true);
+		GUIMostrarCliente.obtenerInstancia().setVisible(true);
 	}
 	
-	private void botonMostrarClientesActionPerformed(java.awt.event.ActionEvent evt) {
-		MostrarClientes.obtenerInstancia().mostrar();
-		MostrarClientes.obtenerInstancia().setVisible(true);
-	}
-	
-	private void botonMostrarClientesReservasSuperadasActionPerformed(java.awt.event.ActionEvent evt) {
-		MostrarClientesSuperanReservas.obtenerInstancia().mostrar();
-		MostrarClientesSuperanReservas.obtenerInstancia().setVisible(true);
-	}
 	
 	//ACCIONES ReservaS
 	private void botonNuevaReservaActionPerformed(java.awt.event.ActionEvent evt) {
-		NuevaReserva.obtenerInstancia().setVisible(true);
+		GUINuevaReserva.obtenerInstancia().setVisible(true);
 	}
 	
-	private void botonBorrarReservaActionPerformed(java.awt.event.ActionEvent evt) {
-		BorrarReserva.obtenerInstancia().setVisible(true);
+	private void botonAnadirHabitacionActionPerformed(java.awt.event.ActionEvent evt) {
+		GUIAnadirHabitacion.obtenerInstancia().setVisible(true);
 	}
 	
-	private void botonModificarReservaActionPerformed(java.awt.event.ActionEvent evt) {
-		ModificarReserva.obtenerInstancia().setVisible(true);
+	private void botonQuitarHabitacionActionPerformed(java.awt.event.ActionEvent evt) {
+		GUIQuitarHabitacion.obtenerInstancia().setVisible(true);
 	}
 	
 	private void botonMostrarReservaActionPerformed(java.awt.event.ActionEvent evt) {
-		MostrarReserva.obtenerInstancia().setVisible(true);
+		GUIMostrarReserva.obtenerInstancia().setVisible(true);
 	}
 	
-	private void botonMostrarReservasActionPerformed(java.awt.event.ActionEvent evt) {
-		MostrarReservas.obtenerInstancia().mostrar();
-		MostrarReservas.obtenerInstancia().setVisible(true);
-	}
-	
-	private void botonAsignarReservaActionPerformed(java.awt.event.ActionEvent evt) {
-		AsignarReserva.obtenerInstancia().setVisible(true);
-	}
+
 	
 	//ACCIONES EMPLEADOS
 	private void botonNuevoEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {
-		NuevoEmpleado.obtenerInstancia().setVisible(true);
 	}
 	
 	private void botonBajaEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {
-		BajaEmpleado.obtenerInstancia().setVisible(true);
 	
 	}
 	private void botonMostrarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {
-		
-		MostrarEmpleado.obtenerInstancia().setVisible(true);
-		
+				
 	}
 	private void botonMostrarEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {
-	
-		MostrarEmpleados.obtenerInstancia().mostrar();
-		MostrarEmpleados.obtenerInstancia().setVisible(true);
+
 	}
 	private void botonAsignarTareaActionPerformed(java.awt.event.ActionEvent evt) {
 		
-		AsignarTarea.obtenerInstancia().setVisible(true);
 	}
 
 	//ACCIONES DEPARTAMENTOS
 
 	private void botonNuevoDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {
-		NuevoDepartamento.obtenerInstancia().setVisible(true);
 	}
 	
 	private void botonBajaDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {
-			BajaDepartamento.obtenerInstancia().setVisible(true);
 	}
 	
 	private void botonMostrarDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {
-		MostrarDepartamento.obtenerInstancia().setVisible(true);
 	}
 	
 	private void botonMostrarDepartamentosActionPerformed(java.awt.event.ActionEvent evt) {
-		MostrarDepartamentos.obtenerInstancia().mostrar();
-		MostrarDepartamentos.obtenerInstancia().setVisible(true);
 	}
 
 	//ACCIONES TAREAS
 	private void botonNuevaTareaActionPerformed(java.awt.event.ActionEvent evt) {
-	  NuevaTarea.obtenerInstancia().setVisible(true);
 	}
 
 	private void botonBajaTareaActionPerformed(java.awt.event.ActionEvent evt) {
-		BajaTarea.obtenerInstancia().setVisible(true);
 	}
 	private void botonMostrarTareaActionPerformed(java.awt.event.ActionEvent evt) {
-	MostrarTarea.obtenerInstancia().setVisible(true);
 	}
 	private void botonMostrarTareasActionPerformed(java.awt.event.ActionEvent evt) {
-		MostrarTareas.obtenerInstancia().mostrar();
-		MostrarTareas.obtenerInstancia().setVisible(true);
 	}
 	
 	
-	*/
+	
 	
 	/**
 	 * @param args
@@ -572,22 +482,17 @@ public class PanelPrincipal extends javax.swing.JFrame {
 	private javax.swing.JMenuItem botonBajaDepartamento;
 	private javax.swing.JMenuItem botonBajaEmpleado;
 	private javax.swing.JMenuItem botonBajaTarea;
-	private javax.swing.JMenuItem botonBorrarReserva;
-	private javax.swing.JMenuItem botonBorrarHabitacion;
+	private javax.swing.JMenuItem botonAnadirHabitacion;
 	private javax.swing.JMenuItem botonBorrarCliente;
 	private javax.swing.JMenuItem botonModifcarCliente;
-	private javax.swing.JMenuItem botonModificarReserva;
-	private javax.swing.JMenuItem botonModificarHabitacion;
+	private javax.swing.JMenuItem botonQuitarHabitacion;
 	private javax.swing.JMenuItem botonMostrarDepartamento;
 	private javax.swing.JMenuItem botonMostrarDepartamentos;
 	private javax.swing.JMenuItem botonMostrarEmpleado;
 	private javax.swing.JMenuItem botonMostrarEmpleados;
 	private javax.swing.JMenuItem botonMostrarReserva;
-	private javax.swing.JMenuItem botonMostrarReservas;
 	private javax.swing.JMenuItem botonMostrarHabitacion;
-	private javax.swing.JMenuItem botonMostrarHabitaciones;
 	private javax.swing.JMenuItem botonMostrarCliente;
-	private javax.swing.JMenuItem botonMostrarClientes;
 	private javax.swing.JMenuItem botonMostrarTarea;
 	private javax.swing.JMenuItem botonMostrarTareas;
 	private javax.swing.JMenuItem botonNuevaReserva;
@@ -596,7 +501,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
 	private javax.swing.JMenuItem botonNuevoDepartamento;
 	private javax.swing.JMenuItem botonNuevoEmpleado;
 	private javax.swing.JMenuItem botonNuevoCliente;
-	private javax.swing.JMenuItem botonAsignarReserva;
 	private javax.swing.JMenuBar jMenuBar1;
 	private javax.swing.JMenu pestanaDepartamento;
 	private javax.swing.JMenu pestanaEmpleado;
@@ -606,6 +510,5 @@ public class PanelPrincipal extends javax.swing.JFrame {
 	private javax.swing.JMenu pestanaTarea;
 	// End of variables declaration
 	
-	private javax.swing.JMenuItem botonMostrarClientesReservasSuperadas;
 
 }

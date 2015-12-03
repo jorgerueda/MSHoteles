@@ -3,6 +3,8 @@
  */
 package PrimeraEntrega.Presentacion.Habitacion;
 
+import javax.swing.JComponent;
+
 /** 
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->
@@ -44,8 +46,13 @@ public class GUIMostrarHabitacion {
 	 */
 	public static void panelMostrarHabitacion() {
 		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
+		// TODO Apï¿½ndice de mï¿½todo generado automï¿½ticamente
 
 		// end-user-code
+	}
+
+	public static JComponent obtenerInstancia() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
