@@ -192,4 +192,9 @@ public class TransferHabitacion {
 
 		// end-user-code
 	}
+
+	public boolean getOcupado() {
+		//rellenar
+		return false;
+	}
 }
