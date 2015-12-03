@@ -23,7 +23,7 @@ public class TransactionManager {
 	 * @return el instancia
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public TransactionManager getInstancia() {
+	public static TransactionManager getInstancia() {
 		// begin-user-code
 		return instancia;
 		// end-user-code
@@ -73,7 +73,7 @@ public class TransactionManager {
 	 */
 	public static void getInstacia() {
 		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
+		// TODO Apï¿½ndice de mï¿½todo generado automï¿½ticamente
 
 		// end-user-code
 	}
@@ -85,7 +85,7 @@ public class TransactionManager {
 	 */
 	public void crearTransaccion() {
 		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
+		// TODO Apï¿½ndice de mï¿½todo generado automï¿½ticamente
 
 		// end-user-code
 	}
@@ -97,7 +97,7 @@ public class TransactionManager {
 	 */
 	public void eliminarTransaccion() {
 		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
+		// TODO Apï¿½ndice de mï¿½todo generado automï¿½ticamente
 
 		// end-user-code
 	}
@@ -109,7 +109,7 @@ public class TransactionManager {
 	 */
 	public void getTransaction() {
 		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
+		// TODO Apï¿½ndice de mï¿½todo generado automï¿½ticamente
 
 		// end-user-code
 	}

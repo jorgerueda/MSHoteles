@@ -5,7 +5,10 @@ package PrimeraEntrega.Negocio.Cliente.SA.Implementacion;
 
 import PrimeraEntrega.Negocio.Cliente.SA.SACliente;
 import PrimeraEntrega.Negocio.Transfer.TransferCliente;
-import PrimeraEntrega.Integracion*;
+import PrimeraEntrega.Integracion.Cliente.DAOCliente;
+import PrimeraEntrega.Integracion.FactoriaDAO.FactoriaDAO;
+import PrimeraEntrega.Integracion.Transaccion.Transaccion;
+import PrimeraEntrega.Integracion.TransactionManager.TransactionManager;
 
 
 /** 
@@ -57,9 +60,10 @@ public class SAClienteImp implements SACliente {
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
+	 * @return 
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void bajaCliente(TransferCliente TCliente) {
+	public Boolean bajaCliente(TransferCliente TCliente) {
 		
 		Boolean correcto = true;
 		Boolean esta = false;
