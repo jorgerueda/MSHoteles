@@ -197,4 +197,14 @@ public class TransferHabitacion {
 		//rellenar
 		return false;
 	}
+
+	public void setID(Integer valueOf) {
+		
+		
+	}
+
+	public void setNumero(String string) {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -164,4 +164,9 @@ public class TransferCliente {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	public int setID(Integer integer) {
+		return 0;
+		
+	}
 }
