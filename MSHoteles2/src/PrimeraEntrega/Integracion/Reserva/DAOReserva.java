@@ -17,7 +17,7 @@ public interface DAOReserva {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public boolean nuevaReserva(TransferReserva Treserva);
+	public int nuevaReserva(TransferReserva Treserva);
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -38,5 +38,7 @@ public interface DAOReserva {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public boolean mostrarReserva(TransferReserva Treserva);
+	public TransferReserva mostrarReserva(int id);
+
+	public void eliminarReserva(Integer idReserva);
 }

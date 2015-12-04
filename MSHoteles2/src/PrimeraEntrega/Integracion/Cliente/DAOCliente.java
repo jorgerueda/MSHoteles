@@ -17,14 +17,14 @@ public interface DAOCliente {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public boolean altaCliente(TransferCliente TCliente);
+	public int altaCliente(TransferCliente TCliente);
 
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public boolean bajaCliente(TransferCliente TCliente);
+	public boolean bajaCliente(int ID);
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -46,4 +46,10 @@ public interface DAOCliente {
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	public void mostrarClientes();
+
+	
+	//necesitamos estos ,creo 
+	public int getId(String dni);
+
+	public TransferCliente buscarCliente(int id_cliente);
 }

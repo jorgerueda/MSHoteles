@@ -19,7 +19,7 @@ public abstract class FactoriaDAO {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	private static Object instance;
+	private static FactoriaDAO instance;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
@@ -105,7 +105,7 @@ public abstract class FactoriaDAO {
 	 * @return el instance
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public static Object getInstance() {
+	public static FactoriaDAO getInstance() {
 		return instance;
 	}
 
@@ -113,30 +113,11 @@ public abstract class FactoriaDAO {
 	 * @param instance el instance a establecer
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public static void setInstance(Object instance) {
+	public static void setInstance(FactoriaDAO instance) {
 		// begin-user-code
 		FactoriaDAO.instance = instance;
 		// end-user-code
 	}
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public abstract DAOCliente getDAOCliente();
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public abstract DAOHabitacion getDAOHabitacion();
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public abstract DAOReserva getDAOReserva();
+	
 }

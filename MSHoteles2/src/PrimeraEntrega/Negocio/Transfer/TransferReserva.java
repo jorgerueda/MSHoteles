@@ -22,6 +22,15 @@ public class TransferReserva {
 	protected Date FechaSalida;
 	
 	private boolean activo;
+	
+	private String dniCliente;
+	
+	private int numHabitacion;
+	
+	private int idCliente;
+	
+	private int idHabitacion;
+	
 
 	
 	public int getID_Reserva() {
@@ -102,6 +111,43 @@ public class TransferReserva {
 
 	public void setActivo(boolean activo) {
 		this.activo = activo;
+	}
+
+	public int getIdCliente() {
+		return idCliente;
+	}
+
+	public void setIdCliente(int idCliente) {
+		this.idCliente = idCliente;
+	}
+
+	public int getIdHabitacion() {
+		return idHabitacion;
+	}
+
+	public void setIdHabitacion(int idHabitacion) {
+		this.idHabitacion = idHabitacion;
+	}
+
+	public String getDniCliente() {
+		return dniCliente;
+	}
+
+	public void setDniCliente(String dniCliente) {
+		this.dniCliente = dniCliente;
+	}
+
+	public int getNumHabitacion() {
+		return numHabitacion;
+	}
+
+	public void setNumHabitacion(int numHabitacion) {
+		this.numHabitacion = numHabitacion;
+	}
+
+	public void setId(int idReserva) {
+		this.ID_Reserva = idReserva;
+		
 	}
 
 	

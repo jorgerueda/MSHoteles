@@ -17,26 +17,26 @@ public interface SAReserva {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public Boolean nuevaReserva(TransferReserva TReserva);
+	public int nuevaReserva(TransferReserva TReserva);
 
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public Boolean anadirHabitacion(TransferReserva TReserva);
+	public int anadirHabitacion(TransferReserva TReserva);
 
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public Boolean quitarHabitacion(TransferReserva TReserva);
+	public int quitarHabitacion(TransferReserva TReserva);
 
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public TransferReserva mostrarReserva(TransferReserva TReserva);
+	public TransferReserva mostrarReserva(int id);
 }

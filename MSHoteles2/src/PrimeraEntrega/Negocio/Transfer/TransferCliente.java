@@ -3,6 +3,9 @@
  */
 package PrimeraEntrega.Negocio.Transfer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /** 
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->
@@ -21,7 +24,15 @@ public class TransferCliente {
 	
 	private boolean activo;
 	
-
+	private List<Integer> id_reservas_cliente;
+	
+	public TransferCliente(){
+		
+		//Crea la lista
+		id_reservas_cliente = new ArrayList<Integer>();
+		
+		activo = true; //Se crea estando activo
+	}
 	/** 
 	 * @return el ID_Cliente
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
@@ -43,29 +54,9 @@ public class TransferCliente {
 
 
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void setApellidos() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
 
-		// end-user-code
-	}
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void setDni() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
-	}
+	
 
 	/** 
 	 * @return el Nombre
@@ -73,10 +64,7 @@ public class TransferCliente {
 	 */
 	public String getNombre() {
 		return this.Nombre;
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
+	
 	}
 
 	/** 
@@ -135,4 +123,20 @@ public class TransferCliente {
 	public void setActivo(boolean activo) {
 		this.activo=activo;
 	}
+
+	public List<Integer> getId_reservas_cliente() {
+		return id_reservas_cliente;
+	}
+
+	public void setId_reservas_cliente(List<Integer> id_reservas_cliente) {
+		this.id_reservas_cliente = id_reservas_cliente;
+	}
+	public void setId(int id_cliente) {
+
+		this.ID_Cliente=id_cliente;
+		
+	}
+	
+
+
 }

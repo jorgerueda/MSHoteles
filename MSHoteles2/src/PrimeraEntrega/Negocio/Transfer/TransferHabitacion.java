@@ -131,4 +131,10 @@ public class TransferHabitacion {
 		this.activo = activo;
 	}
 
+	public void setId(int id_hab) {
+		
+		this.ID_Habitacion= id_hab;
+		
+	}
+
 }
