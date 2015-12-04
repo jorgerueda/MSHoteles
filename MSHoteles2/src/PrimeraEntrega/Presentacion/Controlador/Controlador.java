@@ -3,6 +3,8 @@
  */
 package PrimeraEntrega.Presentacion.Controlador;
 
+import PrimeraEntrega.Negocio.Transfer.TransferCliente;
+
 /** 
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->
@@ -47,11 +49,13 @@ public class Controlador {
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
+	 * @param transferCliente 
+	 * @param altaCliente 
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void execute() {
+	public void execute(int altaCliente, TransferCliente transferCliente) {
 		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
+		// TODO Apï¿½ndice de mï¿½todo generado automï¿½ticamente
 
 		// end-user-code
 	}
@@ -62,7 +66,7 @@ public class Controlador {
 	 */
 	public static Controlador getInstancia() {
 		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
+		// TODO Apï¿½ndice de mï¿½todo generado automï¿½ticamente
 
 		// end-user-code
 	}
