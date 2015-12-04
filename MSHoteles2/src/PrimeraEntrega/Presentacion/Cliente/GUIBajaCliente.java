@@ -43,7 +43,7 @@ public class GUIBajaCliente extends javax.swing.JFrame implements Vista {
         jFormattedTextFieldDNI = new javax.swing.JFormattedTextField();
         jButtonAceptar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabelDNI.setText("DNI");
 

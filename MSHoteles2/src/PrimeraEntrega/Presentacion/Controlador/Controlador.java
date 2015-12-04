@@ -4,6 +4,8 @@
 package PrimeraEntrega.Presentacion.Controlador;
 
 import PrimeraEntrega.Negocio.Transfer.TransferCliente;
+import PrimeraEntrega.Presentacion.Controlador.Implementacion.ControladorImp;
+
 
 /** 
  * <!-- begin-UML-doc -->
@@ -11,73 +13,34 @@ import PrimeraEntrega.Negocio.Transfer.TransferCliente;
  * @author Andrea
  * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
-public class Controlador {
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
+public abstract class Controlador {
+
 	private static Controlador controlador;
 
-	/** 
-	 * @return el controlador
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	/**
+	 * Constructor privado por ser singleton
 	 */
-	public static Controlador getControlador() {
-		// begin-user-code
-		return controlador;
-		// end-user-code
-	}
-
-	/** 
-	 * @param controlador el controlador a establecer
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public static void setControlador(Controlador controlador) {
-		// begin-user-code
-		Controlador.controlador = controlador;
-		// end-user-code
-	}
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public static Controlador instancia;
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @param transferCliente 
-	 * @param altaCliente 
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void execute(int altaCliente, TransferCliente transferCliente) {
-		// begin-user-code
-		// TODO Ap�ndice de m�todo generado autom�ticamente
-
-		// end-user-code
-	}
-
-	/** 
-	 * @return el instancia
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	protected Controlador(){}
+	
+	/**
+	 * Obtiene una instancia de la clase
+	 * @return la instancia de la clase
 	 */
 	public static Controlador getInstancia() {
-		// begin-user-code
-		// TODO Ap�ndice de m�todo generado autom�ticamente
-
-		// end-user-code
+	
+		if(controlador == null){
+			controlador = new ControladorImp();
+		}
+		
+		return controlador;
+	
 	}
 
-	/** 
-	 * @param instancia el instancia a establecer
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	/**
+	 * Realiza la respuesta del evento sucedido
+	 * @param id_evento el id del evento sucedido
+	 * @param datos los datos con los que trabaja
 	 */
-	public static void setInstancia(Controlador instancia) {
-		// begin-user-code
-		Controlador.instancia = instancia;
-		// end-user-code
-	}
+	public abstract void execute(int id_evento, Object datos);
+	
 }

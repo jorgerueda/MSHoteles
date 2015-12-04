@@ -10,15 +10,16 @@ import PrimeraEntrega.Presentacion.Controlador.Evento;
 import PrimeraEntrega.Presentacion.Controlador.Implementacion.ControladorImp;
 import PrimeraEntrega.Presentacion.Dispatcher.EventoVista;
 
-public class GUIModificarCliente extends javax.swing.JFrame implements Vista {
+
+public class GUIMostrarCliente extends javax.swing.JFrame implements Vista {
 
     /**
-     * Creates new form GUIModificarCliente
+     * Creates new form GUIMostrarCliente
      */
-	static private GUIModificarCliente modificarCliente;
+	static private GUIMostrarCliente mostrarCliente;
 
 	  /** Creates new form NuevoDepartamento */
-	  private GUIModificarCliente() {
+	  private GUIMostrarCliente() {
 	      initComponents();
 	  }
 	  
@@ -26,12 +27,12 @@ public class GUIModificarCliente extends javax.swing.JFrame implements Vista {
 	   * Obtiene la instancia de la ventana
 	   * @return la instancia de la ventana
 	   */
-	  static public GUIModificarCliente obtenerInstancia(){
-		   if(modificarCliente == null){
-			   modificarCliente = new GUIModificarCliente();
+	  static public GUIMostrarCliente obtenerInstancia(){
+		   if(mostrarCliente == null){
+			   mostrarCliente = new GUIMostrarCliente();
 		   }
 		   
-		   return modificarCliente;
+		   return mostrarCliente;
 	  }
 
 
@@ -57,6 +58,8 @@ public class GUIModificarCliente extends javax.swing.JFrame implements Vista {
         jFormattedTextFieldDescuento = new javax.swing.JFormattedTextField();
         jButtonAceptar = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
+        jTextAreaReservas = new javax.swing.JTextArea();
+
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -87,8 +90,14 @@ public class GUIModificarCliente extends javax.swing.JFrame implements Vista {
         });
 
         jButtonCancelar.setText("Cancelar");
-        jButtonCancelar.setVisible(false);
-      
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
+
+        jTextAreaReservas.setColumns(20);
+        jTextAreaReservas.setRows(5);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -109,10 +118,6 @@ public class GUIModificarCliente extends javax.swing.JFrame implements Vista {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabelPuntos))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButtonAceptar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
-                                .addComponent(jButtonCancelar))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabelNombre)
@@ -127,38 +132,48 @@ public class GUIModificarCliente extends javax.swing.JFrame implements Vista {
                                             .addComponent(jFormattedTextFieldDNI, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
                                             .addComponent(jFormattedTextFieldApellidos))))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(18, 18, 18)
-                .addComponent(jFormattedTextFieldPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jFormattedTextFieldPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(190, 190, 190))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jTextAreaReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(211, 211, 211)
+                .addComponent(jButtonAceptar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jRadioButtonTipo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelNombre)
-                    .addComponent(jFormattedTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelApellidos)
-                    .addComponent(jFormattedTextFieldApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelDNI)
-                    .addComponent(jFormattedTextFieldDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jRadioButtonTipo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelNombre)
+                            .addComponent(jFormattedTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelApellidos)
+                            .addComponent(jFormattedTextFieldApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelDNI)
+                            .addComponent(jFormattedTextFieldDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jTextAreaReservas, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelDescuento)
                     .addComponent(jLabelPuntos)
                     .addComponent(jFormattedTextFieldPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFormattedTextFieldDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonAceptar)
-                    .addComponent(jButtonCancelar))
-                .addGap(16, 16, 16))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addComponent(jButtonAceptar)
+                .addGap(15, 15, 15))
         );
         //Borra el los datos correspondiente al cerrar la ventana
         this.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -198,7 +213,7 @@ public class GUIModificarCliente extends javax.swing.JFrame implements Vista {
   	   transferCliente.setNombre(jFormattedTextFieldNombre.getText());
   	   transferCliente.setApellidos(jFormattedTextFieldApellidos.getText());  
   	   
-         ControladorImp.getInstancia().execute(Evento.MODIFICAR_CLIENTE, transferCliente);
+         ControladorImp.getInstancia().execute(Evento.ALTA_CLIENTE, transferCliente);
         // TODO add your handling code here:
     }   
     private void jRadioButtonTipoActionPerformed(java.awt.event.ActionEvent evt) {                                                
@@ -237,20 +252,20 @@ public class GUIModificarCliente extends javax.swing.JFrame implements Vista {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUIModificarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIMostrarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUIModificarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIMostrarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUIModificarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIMostrarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUIModificarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIMostrarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUIModificarCliente().setVisible(true);
+                new GUIMostrarCliente().setVisible(true);
             }
         });
     }
@@ -269,6 +284,8 @@ public class GUIModificarCliente extends javax.swing.JFrame implements Vista {
     private javax.swing.JLabel jLabelNombre;
     private javax.swing.JLabel jLabelPuntos;
     private javax.swing.JRadioButton jRadioButtonTipo;
+    private javax.swing.JTextArea jTextAreaReservas;
+
     // End of variables declaration                 
     @Override
 	public void actualizar(int id_evento_vista, Object datos) {
@@ -280,15 +297,36 @@ public class GUIModificarCliente extends javax.swing.JFrame implements Vista {
          jFormattedTextFieldPuntos.setText("");
          jFormattedTextFieldApellidos.setText("");
 		
-		if(id_evento_vista == EventoVista.MODIFICAR_CLIENTE_EXITO){
-			JOptionPane.showMessageDialog(null, "Se ha modificado el residente con exito", "Nuevo Residente", JOptionPane.INFORMATION_MESSAGE);		
-		}	
-		else if(id_evento_vista == EventoVista.MODIFICAR_CLIENTE_NO_EXISTE){
-			JOptionPane.showMessageDialog(null, "ERROR!! El Cliente introducido no existe", "Nuevo Residente", JOptionPane.ERROR_MESSAGE);
-		}
-		else if (id_evento_vista == EventoVista.MODIFICAR_CLIENTE_FALLO){
-			JOptionPane.showMessageDialog(null, "ERROR!! Ha ocurrido un error con la BD", "Nuevo Residente", JOptionPane.ERROR_MESSAGE);
-		}
+         if(id_evento_vista == EventoVista.MOSTRAR_CLIENTE_EXITO){
+     		TransferCliente t = (TransferCliente) datos;
+     		
+     		jFormattedTextFieldNombre.setText(t.getNombre());
+     		jFormattedTextFieldApellidos.setText(t.getApellidos());
+     			
+     		
+     		if(TransferClienteVip.class == t.getClass()){
+     			jRadioButtonTipo.setSelected(true);
+     			
+     			jFormattedTextFieldDescuento.setText((String.valueOf(((TransferClienteVip)t).getDescuento())));
+     		}
+     		else if(TransferClienteStandar.class == t.getClass()){
+     			jRadioButtonTipo.setSelected(false);
+     	
+     			jFormattedTextFieldPuntos.setText((String.valueOf(((TransferClienteStandar)t).getPuntosAcumulados())));
+     		}
+     	
+ 			//IDs de las facturas
+     		
+     		jTextAreaReservas.append(" ID Reservas \n\n");
+     		
+ 			for(int i: t.getId_reservas_cliente()){
+ 				jTextAreaReservas.append(" " + String.valueOf(i).toString() + "\n"); 
+ 			}
+     		
+     	}
+ 		else if(id_evento_vista == EventoVista.MOSTRAR_CLIENTE_FALLO){
+ 			JOptionPane.showMessageDialog(null, "ERROR!! No se ha encontrado el cliente que se desea mostrar", "Mostrar Cliente", JOptionPane.ERROR_MESSAGE);
+ 		}
 		
 	}
 }

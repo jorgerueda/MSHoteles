@@ -3,50 +3,45 @@
  */
 package PrimeraEntrega.Presentacion.FactoriaComando;
 
+import PrimeraEntrega.Presentacion.Comandos.Comando;
+import PrimeraEntrega.Presentacion.FactoriaComando.Implementacion.FactoriaComandoImp;
+
 /** 
+ *  * Clase abstracta singleton que gestiona la creacion de comandos
+
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->
  * @author Andrea
  * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
-public class FactoriaComando {
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+public abstract class FactoriaComando {
+
+	private static FactoriaComando factoriaComando;
+	
+	/**
+	 * Constructor privado por ser singleton
 	 */
-	private static FactoriaComando instancia;
+	protected FactoriaComando(){}
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	/**
+	 * Crea un comando dado el id del evento y los datos
+	 * @param id_comando el id del evento
+	 * @param datos los datos con los que trabaja
+	 * @return el comando creado
 	 */
-	public void getComando() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
-	}
-
-	/** 
-	 * @return el instancia
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	public abstract Comando getComando(int id_comando, Object datos);
+	
+	/**
+	 * Obtiene una instancia de la clase
+	 * @return la instancia de la clase
 	 */
 	public static FactoriaComando getInstancia() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
 
-		// end-user-code
-	}
+		if (factoriaComando == null) {
+			factoriaComando = new FactoriaComandoImp();
+		}
 
-	/** 
-	 * @param instancia el instancia a establecer
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public static void setInstancia(FactoriaComando instancia) {
-		// begin-user-code
-		FactoriaComando.instancia = instancia;
-		// end-user-code
+		return factoriaComando;
+
 	}
 }

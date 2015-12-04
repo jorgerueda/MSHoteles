@@ -26,7 +26,7 @@ public abstract class FactoriaSA {
 	 * @return el instancia
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public FactoriaSA getInstancia() {
+	public static FactoriaSA getInstancia() {
 
 		if (instancia == null)
 			instancia = new FactoriaSAImp();

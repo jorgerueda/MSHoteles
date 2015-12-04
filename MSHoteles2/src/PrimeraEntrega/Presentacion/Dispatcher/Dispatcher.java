@@ -3,77 +3,43 @@
  */
 package PrimeraEntrega.Presentacion.Dispatcher;
 
+import PrimeraEntrega.Presentacion.Dispatcher.Implementacion.DispatcherImp;
+
 /** 
+ *  * Clase abstracta singleton que gestiona la seleccion de la vista a actualizar
+
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->
  * @author Andrea
  * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
-public class Dispatcher {
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
+public abstract class Dispatcher {
+	
 	private static Dispatcher dispatcher;
-
-	/** 
-	 * @return el dispatcher
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	
+	/**
+	 * Constructor privado por ser singleton
 	 */
-	public static Dispatcher getDispatcher() {
-		// begin-user-code
-		return dispatcher;
-		// end-user-code
-	}
-
-	/** 
-	 * @param dispatcher el dispatcher a establecer
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public static void setDispatcher(Dispatcher dispatcher) {
-		// begin-user-code
-		Dispatcher.dispatcher = dispatcher;
-		// end-user-code
-	}
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public static Dispatcher instancia;
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void dispatch() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
-	}
-
-	/** 
-	 * @return el instancia
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	protected Dispatcher(){}
+	
+	/**
+	 * Obtiene una instancia de la clase
+	 * @return la instancia de la clase
 	 */
 	public static Dispatcher getInstancia() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
+	
+		if(dispatcher == null){
+			dispatcher = new DispatcherImp();
+		}
+		
+		return dispatcher;
+	
 	}
 
-	/** 
-	 * @param instancia el instancia a establecer
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	/**
+	 * permite actualizar la vista en funcion de un evento producido
+	 * @param id_evento_vista el id del evento de la vista
+	 * @param datos los datos necesarios por si hay algun cambio
 	 */
-	public static void setInstancia(Dispatcher instancia) {
-		// begin-user-code
-		Dispatcher.instancia = instancia;
-		// end-user-code
-	}
+	public abstract void dispatch(int id_evento_vista, Object datos);
 }
