@@ -10,15 +10,15 @@ import PrimeraEntrega.Presentacion.Controlador.Evento;
 import PrimeraEntrega.Presentacion.Controlador.Implementacion.ControladorImp;
 import PrimeraEntrega.Presentacion.Dispatcher.EventoVista;
 
-public class GUIAltaCliente extends javax.swing.JFrame implements Vista {
+public class GUIModificarCliente extends javax.swing.JFrame implements Vista {
 
     /**
-     * Creates new form GUIAltaCliente
+     * Creates new form GUIModificarCliente
      */
-	static private GUIAltaCliente altaCliente;
+	static private GUIModificarCliente modificarCliente;
 
 	  /** Creates new form NuevoDepartamento */
-	  private GUIAltaCliente() {
+	  private GUIModificarCliente() {
 	      initComponents();
 	  }
 	  
@@ -26,12 +26,12 @@ public class GUIAltaCliente extends javax.swing.JFrame implements Vista {
 	   * Obtiene la instancia de la ventana
 	   * @return la instancia de la ventana
 	   */
-	  static public GUIAltaCliente obtenerInstancia(){
-		   if(altaCliente == null){
-			   altaCliente = new GUIAltaCliente();
+	  static public GUIModificarCliente obtenerInstancia(){
+		   if(modificarCliente == null){
+			   modificarCliente = new GUIModificarCliente();
 		   }
 		   
-		   return altaCliente;
+		   return modificarCliente;
 	  }
 
 
@@ -87,11 +87,8 @@ public class GUIAltaCliente extends javax.swing.JFrame implements Vista {
         });
 
         jButtonCancelar.setText("Cancelar");
-        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCancelarActionPerformed(evt);
-            }
-        });
+        jButtonCancelar.setVisible(false);
+      
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -201,7 +198,7 @@ public class GUIAltaCliente extends javax.swing.JFrame implements Vista {
   	   transferCliente.setNombre(jFormattedTextFieldNombre.getText());
   	   transferCliente.setApellidos(jFormattedTextFieldApellidos.getText());  
   	   
-         ControladorImp.getInstancia().execute(Evento.ALTA_CLIENTE, transferCliente);
+         ControladorImp.getInstancia().execute(Evento.MODIFICAR_CLIENTE, transferCliente);
         // TODO add your handling code here:
     }   
     private void jRadioButtonTipoActionPerformed(java.awt.event.ActionEvent evt) {                                                
@@ -240,20 +237,20 @@ public class GUIAltaCliente extends javax.swing.JFrame implements Vista {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUIAltaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIModificarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUIAltaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIModificarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUIAltaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIModificarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUIAltaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIModificarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUIAltaCliente().setVisible(true);
+                new GUIModificarCliente().setVisible(true);
             }
         });
     }
@@ -283,13 +280,13 @@ public class GUIAltaCliente extends javax.swing.JFrame implements Vista {
          jFormattedTextFieldPuntos.setText("");
          jFormattedTextFieldApellidos.setText("");
 		
-		if(id_evento_vista == EventoVista.ALTA_CLIENTE_EXITO){
-			JOptionPane.showMessageDialog(null, "Se ha creado el residente con exito", "Nuevo Residente", JOptionPane.INFORMATION_MESSAGE);		
+		if(id_evento_vista == EventoVista.MODIFICAR_CLIENTE_EXITO){
+			JOptionPane.showMessageDialog(null, "Se ha modificado el residente con exito", "Nuevo Residente", JOptionPane.INFORMATION_MESSAGE);		
 		}	
-		else if(id_evento_vista == EventoVista.ALTA_CLIENTE_DNI_YA_EXISTE){
-			JOptionPane.showMessageDialog(null, "ERROR!! El DNI introducido ya existe", "Nuevo Residente", JOptionPane.ERROR_MESSAGE);
+		else if(id_evento_vista == EventoVista.MODIFICAR_CLIENTE_NO_EXISTE){
+			JOptionPane.showMessageDialog(null, "ERROR!! El Cliente introducido no existe", "Nuevo Residente", JOptionPane.ERROR_MESSAGE);
 		}
-		else if (id_evento_vista == EventoVista.ALTA_CLIENTE_FALLO){
+		else if (id_evento_vista == EventoVista.MODIFICAR_CLIENTE_FALLO){
 			JOptionPane.showMessageDialog(null, "ERROR!! Ha ocurrido un error con la BD", "Nuevo Residente", JOptionPane.ERROR_MESSAGE);
 		}
 		
