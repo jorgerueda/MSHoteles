@@ -3,6 +3,8 @@
  */
 package PrimeraEntrega.Integracion.Reserva;
 
+import PrimeraEntrega.Negocio.Transfer.TransferReserva;
+
 /** 
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->
@@ -15,26 +17,26 @@ public interface DAOReserva {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void nuevaReserva();
+	public boolean nuevaReserva(TransferReserva Treserva);
 
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void anadirHabitacion();
+	public boolean anadirHabitacion(TransferReserva Treserva);
 
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void quitarHabitacion();
+	public boolean quitarHabitacion(TransferReserva Treserva);
 
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void mostrarReserva();
+	public boolean mostrarReserva(TransferReserva Treserva);
 }

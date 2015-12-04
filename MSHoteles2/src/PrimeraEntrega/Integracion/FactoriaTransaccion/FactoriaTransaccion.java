@@ -3,50 +3,26 @@
  */
 package PrimeraEntrega.Integracion.FactoriaTransaccion;
 
+import PrimeraEntrega.Integracion.FactoriaTransaccion.Implementacion.FactoriaTransaccionImp;
+import PrimeraEntrega.Integracion.Transaccion.TransaccionMYSQL.TransaccionMYSQL;
+
 /** 
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->
  * @author Andrea
  * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
  */
-public class FactoriaTransaccion {
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	private FactoriaTransaccion instancia;
+public abstract class FactoriaTransaccion {
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void generaTransaccion() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
+	private static FactoriaTransaccion instancia;
 
-		// end-user-code
+
+	public static FactoriaTransaccion getInstancia() {
+		if (instancia == null) 
+			instancia = new FactoriaTransaccionImp();
+		return instancia;
 	}
+	
+	public abstract TransaccionMYSQL nuevaTransaccionMySQL();
 
-	/** 
-	 * @return el instancia
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public FactoriaTransaccion getInstancia() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
-	}
-
-	/** 
-	 * @param instancia el instancia a establecer
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void setInstancia(FactoriaTransaccion instancia) {
-		// begin-user-code
-		this.instancia = instancia;
-		// end-user-code
-	}
 }

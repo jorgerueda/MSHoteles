@@ -3,6 +3,8 @@
  */
 package PrimeraEntrega.Integracion.Transaccion;
 
+import java.sql.Connection;
+
 /** 
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->
@@ -43,12 +45,6 @@ public interface Transaccion {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void lock();
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void Operacion1();
+	public Connection getResource();
 }

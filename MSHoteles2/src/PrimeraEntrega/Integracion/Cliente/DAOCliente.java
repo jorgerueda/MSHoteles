@@ -3,6 +3,8 @@
  */
 package PrimeraEntrega.Integracion.Cliente;
 
+import PrimeraEntrega.Negocio.Transfer.TransferCliente;
+
 /** 
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->
@@ -15,28 +17,28 @@ public interface DAOCliente {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void altaCliente();
+	public boolean altaCliente(TransferCliente TCliente);
 
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void bajaCliente();
+	public boolean bajaCliente(TransferCliente TCliente);
 
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void mostrarCliente();
+	public boolean mostrarCliente(TransferCliente TCliente);
 
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void modificarCliente();
+	public boolean modificarCliente(TransferCliente TCliente);
 
 	/** 
 	 * <!-- begin-UML-doc -->
