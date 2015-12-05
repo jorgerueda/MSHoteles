@@ -3,6 +3,8 @@
  */
 package PrimeraEntrega.Integracion.Cliente;
 
+import java.util.ArrayList;
+
 import PrimeraEntrega.Negocio.Transfer.TransferCliente;
 
 /** 
@@ -24,14 +26,14 @@ public interface DAOCliente {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public boolean bajaCliente(int ID);
+	public boolean bajaCliente(int id);
 
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public boolean mostrarCliente(TransferCliente TCliente);
+	public TransferCliente mostrarCliente(int id);
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -45,11 +47,12 @@ public interface DAOCliente {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void mostrarClientes();
+	public ArrayList<TransferCliente> mostrarClientes();
 
 	
 	//necesitamos estos ,creo 
 	public int getId(String dni);
 
-	public TransferCliente buscarCliente(int id_cliente);
+
+
 }

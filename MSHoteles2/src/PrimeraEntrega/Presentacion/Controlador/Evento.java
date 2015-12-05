@@ -38,8 +38,10 @@ public class Evento {
 	public final static int MODIFICAR_RESERVA = 303;
 	public final static int MOSTRAR_RESERVA = 304;
 	public final static int MOSTRAR_RESERVAS = 305;
-	public final static int AÑADIR_HABITACION = 306;
+	public final static int ANADIR_HABITACION = 306;
 	public final static int QUITAR_HABITACION = 307;
+	public static final int QUERY_HABITACIONES = 401;
+	public static final int QUERY_CLIENTE = 402;
 	
 	
 }

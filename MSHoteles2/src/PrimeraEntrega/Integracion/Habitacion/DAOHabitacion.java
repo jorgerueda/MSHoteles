@@ -19,12 +19,6 @@ public interface DAOHabitacion {
 	 */
 	public int altaHabitacion(TransferHabitacion THabitacion);
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public boolean mostrarHabitacion(TransferHabitacion THabitacion);
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -32,7 +26,7 @@ public interface DAOHabitacion {
 	 * @param id_hab 
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public TransferHabitacion buscarHabitacion(int id_hab);
+	public TransferHabitacion mostrarHabitacion(int id_hab);
 
 	public int getId(int numero);
 }

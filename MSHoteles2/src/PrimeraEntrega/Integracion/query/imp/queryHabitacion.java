@@ -22,8 +22,8 @@ public class queryHabitacion extends Query {
 			s = TransactionManager.getInstancia().getTransaccion().getResource().createStatement();
 			rs = s.executeQuery(query);
 			while(rs.next()) {
-				transfer.setID(Integer.valueOf(rs.getString("ID")));
-				transfer.setNumero(rs.getString("numero"));
+				transfer.setID_Habitacion(Integer.valueOf(rs.getString("ID")));
+				transfer.setNumero(rs.getInt("numero"));
 				ret.add(transfer);
 			}
 			s.close();

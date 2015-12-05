@@ -23,7 +23,7 @@ public class queryCliente extends Query {
 			s = TransactionManager.getInstancia().getTransaccion().getResource().createStatement();
 			rs = s.executeQuery(query);
 			while(rs.next()) {
-				transfer.setID(Integer.valueOf(rs.getString("ID")));
+				transfer.setID_Cliente(Integer.valueOf(rs.getString("ID")));
 				transfer.setNombre(rs.getString("nombre"));
 				ret.add(transfer);
 			}

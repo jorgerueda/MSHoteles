@@ -3,6 +3,7 @@ package PrimeraEntrega.Integracion.query.imp;
 import javax.management.Query;
 
 import PrimeraEntrega.Integracion.query.factoriaQuery;
+import PrimeraEntrega.Presentacion.Controlador.Evento;
 
 public class factoriaQueryImp extends factoriaQuery {
 
@@ -10,13 +11,14 @@ public class factoriaQueryImp extends factoriaQuery {
 	public Query getQuery(Integer id) {
 		Query q = null;
 		switch(id){
-		case Eventos.QUERY_HABITACIONES:
+		case Evento.QUERY_HABITACIONES:
 			q = new queryHabitacion();
 			break;
-		case Eventos.QUERY_CLIENTE:
+		case Evento.QUERY_CLIENTE:
 			q = new queryCliente();
 			break;
 		}
 		return q;
 	}
+}
 
