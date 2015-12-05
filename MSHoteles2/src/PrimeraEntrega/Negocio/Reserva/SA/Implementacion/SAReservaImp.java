@@ -170,7 +170,7 @@ public class SAReservaImp implements SAReserva {
 							id_Habitaciones.add(id_habitacion);
 							TReserva.setId_Habitaciones(id_Habitaciones);
 						
-							int valorCreacion = daoReserva.anadirHabitacion(TReserva);
+							int valorCreacion = daoReserva.anadirHabitacion(TReserva,id_habitacion);
 				
 							//Si devuelve un id correcto
 							if(valorCreacion != 0){
