@@ -3,6 +3,8 @@
  */
 package PrimeraEntrega.Negocio.Reserva.SA.Implementacion;
 
+import java.util.List;
+
 import PrimeraEntrega.Integracion.Cliente.DAOCliente;
 import PrimeraEntrega.Integracion.FactoriaDAO.FactoriaDAO;
 import PrimeraEntrega.Integracion.Habitacion.DAOHabitacion;
@@ -27,50 +29,53 @@ public class SAReservaImp implements SAReserva {
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	public int nuevaReserva(TransferReserva TReserva) {
-		//Siempre debería cambiarse este valor
+		//Siempre deberï¿½a cambiarse este valor
 				int valorDevuelto = 0;
 				
-				//Obtiene una transacción y la empieza
+				//Obtiene una transacciï¿½n y la empieza
 				Transaccion transaccion = TransactionManager.getInstancia().nuevaTransaccion();
 				
 				transaccion.start();
 				
 				DAOReserva daoReserva = FactoriaDAO.getInstance().getDaoReserva();
 				
-				//Comprobación del Cliente
+				//Comprobaciï¿½n del Cliente
 				DAOCliente daoCliente = FactoriaDAO.getInstance().getDaoCliente();
 				
-				//Comprobación de la Habitación
+				//Comprobaciï¿½n de la Habitaciï¿½n
 				DAOHabitacion daoHabitacion = FactoriaDAO.getInstance().getDaoHabitacion();
 				
 				int id_cliente = daoCliente.getId(TReserva.getDniCliente());
 				
-				//Comprobación de si existe ese Cliente con ese id
-				TransferCliente transferBuscadoCliente = daoCliente.buscarCliente(id_cliente);
+				//Comprobaciï¿½n de si existe ese Cliente con ese id
+				TransferCliente transferBuscadoCliente = daoCliente.mostrarCliente(id_cliente);
 			
 				if((transferBuscadoCliente != null)&&(transferBuscadoCliente.getDni().equals(TReserva.getDniCliente()))){
 					
-					//Actualizamos el id del transfer con el que ya tenía
+					//Actualizamos el id del transfer con el que ya tenï¿½a
 					transferBuscadoCliente.setId(id_cliente);
 					
 					//Si esta activo
 					if(transferBuscadoCliente.isActivo()){
 						//En el campo id, ponemos el ID del Cliente
 						TReserva.setIdCliente(id_cliente);
-						//Comprueba la habitación
+						//Comprueba la habitaciï¿½n
 						
 						int id_habitacion = daoHabitacion.getId(TReserva.getNumHabitacion());
 						
-						//Comprobación de si existe ese Cliente con ese id
-						TransferHabitacion transferBuscadoHabitacion = daoHabitacion.buscarHabitacion(id_habitacion);
+						//Comprobaciï¿½n de si existe ese Cliente con ese id
+						TransferHabitacion transferBuscadoHabitacion = daoHabitacion.mostrarHabitacion(id_habitacion);
 						
 						if((transferBuscadoHabitacion != null)&&(transferBuscadoHabitacion.getNumero()==(TReserva.getNumHabitacion()))){
 						
 							if(transferBuscadoHabitacion.isActivo()){
 								
-									TReserva.setIdHabitacion(id_habitacion);
+								List<Integer> id_Habitaciones=TReserva.getId_Habitaciones();
+
+								id_Habitaciones.add(id_habitacion);
+								TReserva.setId_Habitaciones(id_Habitaciones);
 								
-									int valorCreacion = daoReserva.nuevaReserva(TReserva);
+									int valorCreacion = daoReserva.nuevaReserva(TReserva,id_cliente);
 						
 									//Si devuelve un id correcto
 									if(valorCreacion != 0){
@@ -84,19 +89,19 @@ public class SAReservaImp implements SAReserva {
 							}
 							
 						}else{
-							//No existe Habitacion o no está activo
+							//No existe Habitacion o no estï¿½ activo
 							valorDevuelto = -1;
 							transaccion.rollback();
 							}
 					}
 					else{
-					//No existe Cliente o no está activo
+					//No existe Cliente o no estï¿½ activo
 					valorDevuelto = -1;
 					transaccion.rollback();
 					}
 				}
 				else{
-					//No existe Cliente o no está activo
+					//No existe Cliente o no estï¿½ activo
 					valorDevuelto = -1;
 					transaccion.rollback();
 				}
@@ -118,7 +123,7 @@ public class SAReservaImp implements SAReserva {
 		
 		TransferReserva transferBuscado = daoReserva.mostrarReserva(id);
 		
-		//Si no está activa, es como si no la encuentra
+		//Si no estï¿½ activa, es como si no la encuentra
 		
 		if(transferBuscado != null){
 			if(!transferBuscado.isActivo()){
@@ -137,14 +142,120 @@ public class SAReservaImp implements SAReserva {
 
 	@Override
 	public int anadirHabitacion(TransferReserva TReserva) {
-		// TODO Auto-generated method stub
-		return 0;
+		//Siempre deberï¿½a cambiarse este valor
+		int valorDevuelto = 0;
+		
+		//Obtiene una transacciï¿½n y la empieza
+		Transaccion transaccion = TransactionManager.getInstancia().nuevaTransaccion();
+		
+		transaccion.start();
+		
+		DAOReserva daoReserva = FactoriaDAO.getInstance().getDaoReserva();
+		
+
+		//Comprobaciï¿½n de la Habitaciï¿½n
+		DAOHabitacion daoHabitacion = FactoriaDAO.getInstance().getDaoHabitacion();
+		
+				int id_habitacion = daoHabitacion.getId(TReserva.getNumHabitacion());
+				
+				//Comprobaciï¿½n de si existe ese Cliente con ese id
+				TransferHabitacion transferBuscadoHabitacion = daoHabitacion.mostrarHabitacion(id_habitacion);
+				
+				if((transferBuscadoHabitacion != null)&&(transferBuscadoHabitacion.getNumero()==(TReserva.getNumHabitacion()))){
+				
+					if(transferBuscadoHabitacion.isActivo()){
+						
+						 List<Integer> id_Habitaciones=TReserva.getId_Habitaciones();
+
+							id_Habitaciones.add(id_habitacion);
+							TReserva.setId_Habitaciones(id_Habitaciones);
+						
+							int valorCreacion = daoReserva.anadirHabitacion(TReserva);
+				
+							//Si devuelve un id correcto
+							if(valorCreacion != 0){
+								valorDevuelto = valorCreacion;
+								transaccion.commit();
+							}
+							else{
+								valorDevuelto = -2;
+								transaccion.rollback();
+							}
+					}
+					
+				}else{
+					//No existe Habitacion o no estï¿½ activo
+					valorDevuelto = -1;
+					transaccion.rollback();
+					}
+		
+		
+		
+	
+	
+		//Elimina la transaccion
+		TransactionManager.getInstancia().eliminarTransaccion();
+		
+		return valorDevuelto;
 	}
 
 	@Override
 	public int quitarHabitacion(TransferReserva TReserva) {
-		// TODO Auto-generated method stub
-		return 0;
+		//Siempre deberï¿½a cambiarse este valor
+				int valorDevuelto = 0;
+				
+				//Obtiene una transacciï¿½n y la empieza
+				Transaccion transaccion = TransactionManager.getInstancia().nuevaTransaccion();
+				
+				transaccion.start();
+				
+				DAOReserva daoReserva = FactoriaDAO.getInstance().getDaoReserva();
+				
+
+				//Comprobaciï¿½n de la Habitaciï¿½n
+				DAOHabitacion daoHabitacion = FactoriaDAO.getInstance().getDaoHabitacion();
+				
+						int id_habitacion = daoHabitacion.getId(TReserva.getNumHabitacion());
+						
+						//Comprobaciï¿½n de si existe ese Cliente con ese id
+						TransferHabitacion transferBuscadoHabitacion = daoHabitacion.mostrarHabitacion(id_habitacion);
+						
+						if((transferBuscadoHabitacion != null)&&(transferBuscadoHabitacion.getNumero()==(TReserva.getNumHabitacion()))){
+						
+							if(transferBuscadoHabitacion.isActivo()){
+								
+								 List<Integer> id_Habitaciones=TReserva.getId_Habitaciones();
+								 	
+									id_Habitaciones.remove(id_habitacion);
+									TReserva.setId_Habitaciones(id_Habitaciones);
+								
+									int valorCreacion = daoReserva.quitarHabitacion(TReserva);
+						
+									//Si devuelve un id correcto
+									if(valorCreacion != 0){
+										valorDevuelto = valorCreacion;
+										transaccion.commit();
+									}
+									else{
+										valorDevuelto = -2;
+										transaccion.rollback();
+									}
+							}
+							
+						}else{
+							//No existe Habitacion o no estï¿½ activo
+							valorDevuelto = -1;
+							transaccion.rollback();
+							}
+				
+				
+				
+			
+			
+				//Elimina la transaccion
+				TransactionManager.getInstancia().eliminarTransaccion();
+				
+				return valorDevuelto;
 	}
 
 

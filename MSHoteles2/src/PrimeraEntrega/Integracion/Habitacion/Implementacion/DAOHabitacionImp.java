@@ -33,7 +33,7 @@ public class DAOHabitacionImp implements DAOHabitacion {
 
 		Connection connection = (Connection) transaction.getResource();
 		
-		//Si no esta activada y tiene id, es decir, que ya existía
+		//Si no esta activada y tiene id, es decir, que ya existï¿½a
 		//Se hace Update
 		if((!THabitacion.isActivo()&&THabitacion.getID_Habitacion() >= 0)){
 			
@@ -48,7 +48,7 @@ public class DAOHabitacionImp implements DAOHabitacion {
 				
 				statementPrepared.setInt(3, THabitacion.getNumero());
 				
-				statementPrepared.setInt(4, THabitacion.getTipo());
+				statementPrepared.setString(4, THabitacion.getTipo());
 				
 				statementPrepared.setInt(5, THabitacion.getID_Habitacion());
 				
@@ -76,7 +76,7 @@ public class DAOHabitacionImp implements DAOHabitacion {
 				
 				statementPrepared.setInt(3,  THabitacion.getNumero());
 				
-				statementPrepared.setInt(4, THabitacion.getTipo());
+				statementPrepared.setString(4, THabitacion.getTipo());
 				
 				statementPrepared.setInt(5, THabitacion.getID_Habitacion());
 				
@@ -125,11 +125,11 @@ public class DAOHabitacionImp implements DAOHabitacion {
 			//Comprueba si se ha devuelto algo en la consulta
 			if((rs != null)&&(resultadoConsulta)){					
 				
-				//Aplica los datos que había en la BD al transfer
+				//Aplica los datos que habï¿½a en la BD al transfer
 				THabitacion.setPiso(rs.getInt("Piso"));	
 				THabitacion.setNumero(rs.getInt("Numero"));
 				THabitacion.setOcupado(rs.getBoolean("Ocupado"));
-				THabitacion.setTipo(rs.getInt("Tipo"));
+				THabitacion.setTipo(rs.getString("Tipo"));
 				
 				if(rs.getInt("flag") == 1){
 					THabitacion.setActivo(true);

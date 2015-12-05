@@ -35,10 +35,10 @@ public class comandoNuevaReserva extends Comando{
 			retornoComando = new RetornoComando(EventoVista.ALTA_RESERVA_EXITO,id); //crea la respuesta de comando
 		}
 		else if(id == -1){
-			retornoComando = new RetornoComando(EventoVista.ALTA_CLIENTE_DNI_YA_EXISTE,id); //crea la respuesta de comando
+			retornoComando = new RetornoComando(EventoVista.ALTA_RESERVA_CLIENTE_NO_EXISTE,id); //crea la respuesta de comando
 		}
 		else{
-			retornoComando = new RetornoComando(EventoVista.ALTA_HABITACION_FALLO,id); //crea la respuesta de comando
+			retornoComando = new RetornoComando(EventoVista.ALTA_RESERVA_FALLO,id); //crea la respuesta de comando
 		}
 		return retornoComando;
 	}

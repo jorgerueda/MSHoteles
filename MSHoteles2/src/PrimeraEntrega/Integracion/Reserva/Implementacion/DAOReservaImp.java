@@ -32,7 +32,7 @@ public class DAOReservaImp implements DAOReserva {
 
 				Connection connection = (Connection) transaction.getResource();
 				
-				//Si no esta activada y tiene id, es decir, que ya existía
+				//Si no esta activada y tiene id, es decir, que ya existï¿½a
 				//Se hace Update
 				if((!TReserva.isActivo()&&TReserva.getID_Reserva() >= 0)){
 					
@@ -70,7 +70,7 @@ public class DAOReservaImp implements DAOReserva {
 					//Si no, se hace Insert
 					try {
 						PreparedStatement statementPrepared = connection.prepareStatement(
-								"INSERT INTO Reserva (Precio, FechaEntrada, FechaSalida, ID_Cliente, ID_Habitacion, NumeroOcupantes, ID_Reserva, flag) VALUES (?,?,?,?,?,?,?)");
+								"INSERT INTO Reserva (Precio, FechaEntrada, FechaSalida, ID_Cliente, ID_Habitacion, NumeroOcupantes, ID_Reserva, flag) VALUES (?,?,?,?,?,?,?,?)");
 					
 						statementPrepared.setFloat(1, TReserva.getPrecio());
 						
@@ -108,14 +108,14 @@ public class DAOReservaImp implements DAOReserva {
 	}
 
 	@Override
-	public boolean anadirHabitacion(TransferReserva TReserva, int ID_Habitacion) {
-		boolean valorDevuelto = false;
+	public int anadirHabitacion(TransferReserva TReserva, int ID_Habitacion) {
+		int valorDevuelto = 0;
 		
 		Transaccion transaction = TransactionManager.getInstancia().getTransaccion();
 
 		Connection connection = (Connection) transaction.getResource();
 		
-		//Si no esta activada y tiene id, es decir, que ya existía
+		//Si no esta activada y tiene id, es decir, que ya existï¿½a
 		//Se hace Update
 		if((TReserva.getID_Reserva() >= 0)){
 			
@@ -128,10 +128,10 @@ public class DAOReservaImp implements DAOReserva {
 				
 				statementPrepared.executeUpdate();
 
-				valorDevuelto = true;
+				valorDevuelto = 0;
 			} catch (SQLException e) {
-				System.err.println("Error, no se ha podido añadir la habitacion a la reserva");
-				valorDevuelto = false;
+				System.err.println("Error, no se ha podido aï¿½adir la habitacion a la reserva");
+				valorDevuelto = -1;
 				e.printStackTrace();
 			}
 		}
@@ -139,14 +139,14 @@ public class DAOReservaImp implements DAOReserva {
 	}
 
 	@Override
-	public boolean quitarHabitacion(TransferReserva TReserva) {
-		boolean valorDevuelto = false;
+	public int quitarHabitacion(TransferReserva TReserva) {
+		int valorDevuelto = 0;
 		
 		Transaccion transaction = TransactionManager.getInstancia().getTransaccion();
 
 		Connection connection = (Connection) transaction.getResource();
 		
-		//Si no esta activada y tiene id, es decir, que ya existía
+		//Si no esta activada y tiene id, es decir, que ya existï¿½a
 		//Se hace Update
 		if((TReserva.getID_Reserva() >= 0)){
 			
@@ -155,14 +155,14 @@ public class DAOReservaImp implements DAOReserva {
 				statementPrepared = connection.prepareStatement(
 						"UPDATE Reserva SET ID_Habitacion = ? WHERE ? = ID_Reserva");
 				
-				statementPrepared.setInt(1, -1);	//Si el id está a -1 es que no tiene habitación		
+				statementPrepared.setInt(1, -1);	//Si el id estï¿½ a -1 es que no tiene habitaciï¿½n		
 				
 				statementPrepared.executeUpdate();
 
-				valorDevuelto = true;
+				valorDevuelto = 0;
 			} catch (SQLException e) {
-				System.err.println("Error, no se ha podido añadir la habitacion a la reserva");
-				valorDevuelto = false;
+				System.err.println("Error, no se ha podido aï¿½adir la habitacion a la reserva");
+				valorDevuelto = -1;
 				e.printStackTrace();
 			}
 		}
@@ -194,12 +194,12 @@ public class DAOReservaImp implements DAOReserva {
 			//Comprueba si se ha devuelto algo en la consulta
 			if((rs != null)&&(resultadoConsulta)){					
 				
-				//Aplica los datos que había en la BD al transfer
+				//Aplica los datos que habï¿½a en la BD al transfer
 				TReserva.setPrecio(rs.getFloat("Precio"));
 				TReserva.setFechaEntrada(rs.getDate("FechaEntrada"));	
 				TReserva.setFechaSalida(rs.getDate("FechaSalida"));
 				TReserva.setIdCliente(rs.getInt("ID_Cliente"));
-				TReserva.setIdHabitacion(rs.getInt("ID_Habitacion"));
+				TReserva.setIdHabitacion(Integer.valueOf(rs.getInt("ID_Habitacion")));
 				
 				
 				if(rs.getInt("flag") == 1){

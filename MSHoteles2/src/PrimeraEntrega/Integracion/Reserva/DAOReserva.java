@@ -24,14 +24,14 @@ public interface DAOReserva {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public boolean anadirHabitacion(TransferReserva Treserva, int ID_Reserva);
+	public int anadirHabitacion(TransferReserva Treserva,int ID_Habitacion);
 
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public boolean quitarHabitacion(TransferReserva Treserva);
+	public int quitarHabitacion(TransferReserva Treserva);
 
 	/** 
 	 * <!-- begin-UML-doc -->

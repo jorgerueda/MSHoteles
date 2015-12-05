@@ -4,6 +4,7 @@
 package PrimeraEntrega.Negocio.Transfer;
 
 import java.sql.Date;
+import java.util.List;
 
 /** 
  * <!-- begin-UML-doc -->
@@ -29,7 +30,9 @@ public class TransferReserva {
 	
 	private int idCliente;
 	
-	private int idHabitacion;
+	private int numOcupantes;
+	
+	private List<Integer> id_Habitaciones;
 	
 
 	
@@ -121,13 +124,7 @@ public class TransferReserva {
 		this.idCliente = idCliente;
 	}
 
-	public int getIdHabitacion() {
-		return idHabitacion;
-	}
-
-	public void setIdHabitacion(int idHabitacion) {
-		this.idHabitacion = idHabitacion;
-	}
+	
 
 	public String getDniCliente() {
 		return dniCliente;
@@ -148,6 +145,29 @@ public class TransferReserva {
 	public void setId(int idReserva) {
 		this.ID_Reserva = idReserva;
 		
+	}
+
+	public int getNumOcupantes() {
+		return numOcupantes;
+	}
+
+	public void setNumOcupantes(int numOcupantes) {
+		this.numOcupantes = numOcupantes;
+	}
+
+	public List<Integer> getId_Habitaciones() {
+		return id_Habitaciones;
+	}
+
+	public void setId_Habitaciones(List<Integer> id_Habitaciones) {
+		this.id_Habitaciones = id_Habitaciones;
+	}
+	
+	public void setIdHabitacion(Integer id_Habitacion) {
+		this.id_Habitaciones.add(id_Habitacion);
+	}
+	public void removeIdHabitacion(Integer id_Habitacion) {
+		this.id_Habitaciones.remove(id_Habitacion);
 	}
 
 	

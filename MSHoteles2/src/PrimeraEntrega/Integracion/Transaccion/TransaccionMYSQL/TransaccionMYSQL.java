@@ -23,7 +23,7 @@ public class TransaccionMYSQL implements Transaccion {
 	           try {
 	        	   
 	                Class.forName("com.mysql.jdbc.Driver");
-	                connection = DriverManager.getConnection("jdbc:mysql://localhost/mshoteles", "root", "");
+	                connection = DriverManager.getConnection("jdbc:mysql://localhost/mshoteles", "root", "jorgerueda");
 	                connection.setAutoCommit(false);
 	                
 	            } catch (ClassNotFoundException e) {

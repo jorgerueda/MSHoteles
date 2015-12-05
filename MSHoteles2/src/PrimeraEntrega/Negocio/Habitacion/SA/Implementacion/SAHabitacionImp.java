@@ -22,11 +22,11 @@ public class SAHabitacionImp implements SAHabitacion {
 	public int altaHabitacion(TransferHabitacion THabitacion) {
 		
 
-		//Siempre debería cambiarse este valor
+		//Siempre deberï¿½a cambiarse este valor
 		int valorDevuelto = 0;
 		
 	
-			//Obtiene una transacción y la empieza
+			//Obtiene una transacciï¿½n y la empieza
 			Transaccion transaccion = TransactionManager.getInstancia().nuevaTransaccion();
 			
 			transaccion.start();
@@ -35,12 +35,12 @@ public class SAHabitacionImp implements SAHabitacion {
 			
 			int id_hab = daoHabitacion.getId(THabitacion.getNumero());
 			
-			//Comprobación de si existe esa habitación con ese id
-			TransferHabitacion transferBuscado = daoHabitacion.buscarHabitacion(id_hab);
+			//Comprobaciï¿½n de si existe esa habitaciï¿½n con ese id
+			TransferHabitacion transferBuscado = daoHabitacion.mostrarHabitacion(id_hab);
 		
 			if((transferBuscado != null)&&(transferBuscado.getNumero() == THabitacion.getNumero())){
 				
-				//Actualizamos el id del transfer con el que ya tenía
+				//Actualizamos el id del transfer con el que ya tenï¿½a
 				transferBuscado.setId(id_hab);
 				
 				//Si no esta activo, lo activa
@@ -55,7 +55,7 @@ public class SAHabitacionImp implements SAHabitacion {
 					}
 				}
 				else{
-					//Existe y está activo 
+					//Existe y estï¿½ activo 
 					valorDevuelto = -1;
 					transaccion.rollback();
 				}
@@ -88,9 +88,9 @@ public class SAHabitacionImp implements SAHabitacion {
 		
 		DAOHabitacion daoHabitacion = FactoriaDAO.getInstance().getDaoHabitacion();
 		
-		TransferHabitacion transferBuscado = daoHabitacion.buscarHabitacion(daoHabitacion.getId(num_habitacion));
+		TransferHabitacion transferBuscado = daoHabitacion.mostrarHabitacion(daoHabitacion.getId(num_habitacion));
 		
-		//Si no está activa, es como si no la encuentra
+		//Si no estï¿½ activa, es como si no la encuentra
 		
 		if(transferBuscado != null){
 			if(!transferBuscado.isActivo()){

@@ -48,17 +48,23 @@ public class GUIMostrarCliente extends javax.swing.JFrame implements Vista {
         jLabelNombre = new javax.swing.JLabel();
         jLabelApellidos = new javax.swing.JLabel();
         jRadioButtonTipo = new javax.swing.JRadioButton();
+        jRadioButtonTipo.setEnabled(false);
         jLabelDNI = new javax.swing.JLabel();
         jLabelDescuento = new javax.swing.JLabel();
         jLabelPuntos = new javax.swing.JLabel();
         jFormattedTextFieldNombre = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldNombre.setEnabled(false);
         jFormattedTextFieldApellidos = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldApellidos.setEnabled(false);
         jFormattedTextFieldDNI = new javax.swing.JFormattedTextField();
         jFormattedTextFieldPuntos = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldPuntos.setEnabled(false);
         jFormattedTextFieldDescuento = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldDescuento.setEnabled(false);
         jButtonAceptar = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
         jTextAreaReservas = new javax.swing.JTextArea();
+        jTextAreaReservas.setEnabled(false);
 
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -82,7 +88,7 @@ public class GUIMostrarCliente extends javax.swing.JFrame implements Vista {
         jLabelPuntos.setText("Puntos");
 
         
-        jButtonAceptar.setText("Aceptar");
+        jButtonAceptar.setText("Buscar");
         jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
             	jButtonAceptarActionPerformed(evt);
@@ -95,7 +101,8 @@ public class GUIMostrarCliente extends javax.swing.JFrame implements Vista {
                 jButtonCancelarActionPerformed(evt);
             }
         });
-
+        
+        jButtonCancelar.setVisible(false);
         jTextAreaReservas.setColumns(20);
         jTextAreaReservas.setRows(5);
 
@@ -196,24 +203,7 @@ public class GUIMostrarCliente extends javax.swing.JFrame implements Vista {
     }    
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {  
     	 
-    	TransferCliente transferCliente;
-  	   
-  	   if(jRadioButtonTipo.isSelected()){
-  		   transferCliente = new TransferClienteVip();
-  		   
-  		  ((TransferClienteVip) transferCliente).setDescuento(Integer.valueOf(jFormattedTextFieldDescuento.getText()));
-  	   }
-  	   else{
-  		   transferCliente = new TransferClienteStandar();
-  		   
-  		   ((TransferClienteStandar) transferCliente).setPuntosAcumulados(Integer.valueOf(jFormattedTextFieldPuntos.getText()));
-  	   }
-  	   
-  	   transferCliente.setDni(jFormattedTextFieldDNI.getText());
-  	   transferCliente.setNombre(jFormattedTextFieldNombre.getText());
-  	   transferCliente.setApellidos(jFormattedTextFieldApellidos.getText());  
-  	   
-         ControladorImp.getInstancia().execute(Evento.ALTA_CLIENTE, transferCliente);
+    	ControladorImp.getInstancia().execute(Evento.MOSTRAR_CLIENTE, jFormattedTextFieldDNI.getText());
         // TODO add your handling code here:
     }   
     private void jRadioButtonTipoActionPerformed(java.awt.event.ActionEvent evt) {                                                
@@ -291,7 +281,7 @@ public class GUIMostrarCliente extends javax.swing.JFrame implements Vista {
 	public void actualizar(int id_evento_vista, Object datos) {
 		//Borra lo anterior
     	
-    	 jFormattedTextFieldDNI.setText("");
+    	 
          jFormattedTextFieldDescuento.setText("");
          jFormattedTextFieldNombre.setText("");
          jFormattedTextFieldPuntos.setText("");

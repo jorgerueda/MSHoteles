@@ -21,7 +21,7 @@ public class TransferHabitacion {
 	
 	protected int Numero;
 	
-	protected int Tipo;
+	protected String Tipo;
 	
 	protected boolean Ocupado;
 	
@@ -108,7 +108,7 @@ public class TransferHabitacion {
 	 * @return el Tipo
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public int getTipo() {
+	public String getTipo() {
 		return Tipo;
 		
 	}
@@ -117,7 +117,7 @@ public class TransferHabitacion {
 	 * @param Tipo el Tipo a establecer
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	public void setTipo(int Tipo) {
+	public void setTipo(String Tipo) {
 		// begin-user-code
 		this.Tipo = Tipo;
 		// end-user-code
