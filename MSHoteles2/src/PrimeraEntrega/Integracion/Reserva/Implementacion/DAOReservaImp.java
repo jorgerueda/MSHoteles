@@ -39,7 +39,8 @@ public class DAOReservaImp implements DAOReserva {
 					PreparedStatement statementPrepared;
 					try {
 						statementPrepared = connection.prepareStatement(
-								"UPDATE Reserva SET Precio = ? , FechaEntrada = ?, FechaSalida = ?, ID_Cliente = ?, flag = 1 WHERE ? = ID_Reserva");
+								"UPDATE Reserva SET Precio = ? , FechaEntrada = ?, FechaSalida = ?, ID_Cliente = ?, ID_Habitacion = -1"
+								+ "NumeroOcupantes = ? flag = 1 WHERE ? = ID_Reserva");
 						
 						statementPrepared.setFloat(1, TReserva.getPrecio());
 						
@@ -48,6 +49,10 @@ public class DAOReservaImp implements DAOReserva {
 						statementPrepared.setDate(3, TReserva.getFechaSalida());
 						
 						statementPrepared.setInt(4, ID_Cliente);
+						
+						statementPrepared.setInt(5, TReserva.getNumOcupantes());
+						
+						statementPrepared.setInt(6, TReserva.getID_Reserva());
 						
 						statementPrepared.executeUpdate();
 
@@ -65,7 +70,7 @@ public class DAOReservaImp implements DAOReserva {
 					//Si no, se hace Insert
 					try {
 						PreparedStatement statementPrepared = connection.prepareStatement(
-								"INSERT INTO Reserva (Precio, FechaEntrada, FechaSalida, ID_Cliente, ID_Habitacion, flag) VALUES (?,?,?,?,?,?)");
+								"INSERT INTO Reserva (Precio, FechaEntrada, FechaSalida, ID_Cliente, ID_Habitacion, NumeroOcupantes, ID_Reserva, flag) VALUES (?,?,?,?,?,?,?)");
 					
 						statementPrepared.setFloat(1, TReserva.getPrecio());
 						
@@ -77,7 +82,11 @@ public class DAOReservaImp implements DAOReserva {
 						
 						statementPrepared.setInt(5, -1);
 						
-						statementPrepared.setInt(6, 1);
+						statementPrepared.setInt(6, TReserva.getNumOcupantes());
+						
+						statementPrepared.setInt(7, TReserva.getID_Reserva());
+						
+						statementPrepared.setInt(8, 1);
 						
 						statementPrepared.executeUpdate();
 						
@@ -225,7 +234,6 @@ public class DAOReservaImp implements DAOReserva {
 				
 				valorDevuelto = true;
 		} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				valorDevuelto = false;
 				e.printStackTrace();
 		}
@@ -263,7 +271,6 @@ public class DAOReservaImp implements DAOReserva {
 				valorDevuelto = rs.getInt("ID_Reserva");	
 			} catch (SQLException e) {
 				valorDevuelto = -1;
-				// TODO Auto-generated catch block
 				System.err.println("Esa Reserva no existe en el sistema");
 			}
 			

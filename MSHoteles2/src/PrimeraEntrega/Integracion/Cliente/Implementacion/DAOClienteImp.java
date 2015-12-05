@@ -73,7 +73,7 @@ public class DAOClienteImp implements DAOCliente {
 					//Parte general de todos los tipos de clientes
 					try {
 						PreparedStatement statementPrepared = connection.prepareStatement(
-								"INSERT INTO Clientes (Nombre, Apellidos, DNI ,flag) VALUES (?,?,?,?)");
+								"INSERT INTO Clientes (Nombre, Apellidos, DNI, ID_Cliente, flag) VALUES (?,?,?,?,?)");
 					
 						statementPrepared.setString(1, TCliente.getNombre());
 						
@@ -81,7 +81,9 @@ public class DAOClienteImp implements DAOCliente {
 						
 						statementPrepared.setString(3,  TCliente.getDni());
 						
-						statementPrepared.setInt(4, 1);
+						statementPrepared.setInt(4, TCliente.getID_Cliente());
+						
+						statementPrepared.setInt(5, 1);
 						
 						statementPrepared.executeUpdate();
 						

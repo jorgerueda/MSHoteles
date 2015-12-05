@@ -50,6 +50,8 @@ public class DAOHabitacionImp implements DAOHabitacion {
 				
 				statementPrepared.setInt(4, THabitacion.getTipo());
 				
+				statementPrepared.setInt(5, THabitacion.getID_Habitacion());
+				
 				statementPrepared.executeUpdate();
 
 				valorDevuelto = THabitacion.getID_Habitacion();
@@ -66,7 +68,7 @@ public class DAOHabitacionImp implements DAOHabitacion {
 			//Si no, se hace Insert
 			try {
 				PreparedStatement statementPrepared = connection.prepareStatement(
-						"INSERT INTO Habitacion (Piso, Ocupado, Numero, Tipo ,flag) VALUES (?,?,?,?,?)");
+						"INSERT INTO Habitacion (Piso, Ocupado, Numero, Tipo, ID_Habitacion, flag) VALUES (?,?,?,?,?,?)");
 			
 				statementPrepared.setInt(1, THabitacion.getPiso());
 				
@@ -76,7 +78,9 @@ public class DAOHabitacionImp implements DAOHabitacion {
 				
 				statementPrepared.setInt(4, THabitacion.getTipo());
 				
-				statementPrepared.setInt(5, 1);
+				statementPrepared.setInt(5, THabitacion.getID_Habitacion());
+				
+				statementPrepared.setInt(6, 1);
 				
 				statementPrepared.executeUpdate();
 				
