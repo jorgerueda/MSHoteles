@@ -56,7 +56,7 @@ public class GUIAltaHabitacion extends javax.swing.JFrame implements Vista {
         jButtonAceptar = new javax.swing.JButton();
         jFormattedTextFieldPiso = new javax.swing.JFormattedTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabelPiso.setText("Piso");
 
