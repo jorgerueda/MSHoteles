@@ -30,7 +30,7 @@ public class SAClienteImp implements SACliente {
 					
 				transaccion.start();
 					
-				DAOCliente daoCliente= FactoriaDAO.getInstance().getDaoCliente();
+				DAOCliente daoCliente= FactoriaDAO.getInstance().getDAOCliente();
 				
 					
 				int id_cliente = daoCliente.getId(TCliente.getDni());
@@ -57,7 +57,7 @@ public class SAClienteImp implements SACliente {
 						
 						TCliente.setActivo(true);
 					}
-					
+					TCliente.setID_Cliente(id_cliente);
 					int valorCreacion = daoCliente.altaCliente(TCliente);
 					
 					//Si devuelve un id correcto
@@ -84,10 +84,10 @@ public class SAClienteImp implements SACliente {
 					
 				transaccion.start();
 					
-				DAOCliente daoCliente = FactoriaDAO.getInstance().getDaoCliente();
+				DAOCliente daoCliente = FactoriaDAO.getInstance().getDAOCliente();
 				
 				//para liberar  habitaci�n
-				DAOHabitacion daoHabitacion = FactoriaDAO.getInstance().getDaoHabitacion();
+				DAOHabitacion daoHabitacion = FactoriaDAO.getInstance().getDAOHabitacion();
 					
 				int id_cliente = daoCliente.getId(dni);
 				
@@ -109,7 +109,7 @@ public class SAClienteImp implements SACliente {
 							}
 						
 						}else{
-							DAOReserva daoReserva = FactoriaDAO.getInstance().getDaoReserva();
+							DAOReserva daoReserva = FactoriaDAO.getInstance().getDAOReserva();
 							//Se obtiene la ids de las reservas
 							for (Integer idReserva:transferBuscadoCliente.getId_reservas_cliente()){
 								//Comprobaci�n de si existe esa reserva con ese id
@@ -150,7 +150,7 @@ public class SAClienteImp implements SACliente {
 		
 		transaccion.start();
 		
-		DAOCliente daoCliente = FactoriaDAO.getInstance().getDaoCliente();
+		DAOCliente daoCliente = FactoriaDAO.getInstance().getDAOCliente();
 		
 		TransferCliente transferBuscado = daoCliente.mostrarCliente(daoCliente.getId(dni));
 		
@@ -192,7 +192,7 @@ public class SAClienteImp implements SACliente {
 					
 				transaccion.start();
 					
-				DAOCliente daoCliente = FactoriaDAO.getInstance().getDaoCliente();
+				DAOCliente daoCliente = FactoriaDAO.getInstance().getDAOCliente();
 				
 				int id_cliente = daoCliente.getId(transferClienteInformacionNueva.getDni());
 				
@@ -244,7 +244,7 @@ public class SAClienteImp implements SACliente {
 				Transaccion transaccion = TransactionManager.getInstancia().nuevaTransaccion();
 				
 				transaccion.start();
-				DAOCliente daoCliente = FactoriaDAO.getInstance().getDaoCliente();
+				DAOCliente daoCliente = FactoriaDAO.getInstance().getDAOCliente();
 				
 				
 				

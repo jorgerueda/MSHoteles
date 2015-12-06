@@ -4,6 +4,7 @@
 package PrimeraEntrega.Integracion.FactoriaDAO;
 
 import PrimeraEntrega.Integracion.Cliente.DAOCliente;
+import PrimeraEntrega.Integracion.FactoriaDAO.Implementacion.FactoriaDAOImp;
 import PrimeraEntrega.Integracion.Habitacion.DAOHabitacion;
 import PrimeraEntrega.Integracion.Reserva.DAOReserva;
 
@@ -19,105 +20,32 @@ public abstract class FactoriaDAO {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
+	protected FactoriaDAO() {
+	}
+	
 	private static FactoriaDAO instance;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public DAOCliente daoCliente;
+	
+	public abstract DAOCliente getDAOCliente();
 
-	/** 
-	 * @return el daoCliente
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public DAOCliente getDaoCliente() {
-		// begin-user-code
-		return daoCliente;
-		// end-user-code
-	}
 
-	/** 
-	 * @param daoCliente el daoCliente a establecer
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void setDaoCliente(DAOCliente daoCliente) {
-		// begin-user-code
-		this.daoCliente = daoCliente;
-		// end-user-code
-	}
 
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public DAOHabitacion daoHabitacion;
+	public abstract DAOHabitacion getDAOHabitacion();
 
-	/** 
-	 * @return el daoHabitacion
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public DAOHabitacion getDaoHabitacion() {
-		// begin-user-code
-		return daoHabitacion;
-		// end-user-code
-	}
-
-	/** 
-	 * @param daoHabitacion el daoHabitacion a establecer
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void setDaoHabitacion(DAOHabitacion daoHabitacion) {
-		// begin-user-code
-		this.daoHabitacion = daoHabitacion;
-		// end-user-code
-	}
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public DAOReserva daoReserva;
-
-	/** 
-	 * @return el daoReserva
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public DAOReserva getDaoReserva() {
-		// begin-user-code
-		return daoReserva;
-		// end-user-code
-	}
-
-	/** 
-	 * @param daoReserva el daoReserva a establecer
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public void setDaoReserva(DAOReserva daoReserva) {
-		// begin-user-code
-		this.daoReserva = daoReserva;
-		// end-user-code
-	}
+	
+	public abstract DAOReserva getDAOReserva();
 
 	/** 
 	 * @return el instance
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
 	public static FactoriaDAO getInstance() {
+
+		if (instance == null)
+			instance = new FactoriaDAOImp();
+		
 		return instance;
 	}
 
-	/** 
-	 * @param instance el instance a establecer
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-	public static void setInstance(FactoriaDAO instance) {
-		// begin-user-code
-		FactoriaDAO.instance = instance;
-		// end-user-code
-	}
-
+	
 	
 }

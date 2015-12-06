@@ -24,7 +24,7 @@ import PrimeraEntrega.Negocio.Transfer.TransferReserva;
 public class DAOReservaImp implements DAOReserva {
 
 	@Override
-	public int nuevaReserva(TransferReserva TReserva, int ID_Cliente) {
+	public int nuevaReserva(TransferReserva TReserva, int ID_Cliente, int ID_Habitacion) {
 		//Si no se cambia el valor, devuelve error
 				int valorDevuelto = -1;
 				
@@ -39,7 +39,7 @@ public class DAOReservaImp implements DAOReserva {
 					PreparedStatement statementPrepared;
 					try {
 						statementPrepared = connection.prepareStatement(
-								"UPDATE Reserva SET Precio = ? , FechaEntrada = ?, FechaSalida = ?, ID_Cliente = ?, ID_Habitacion = -1"
+								"UPDATE Reserva SET Precio = ? , FechaEntrada = ?, FechaSalida = ?, ID_Cliente = ?, ID_Habitacion = ?"
 								+ "NumeroOcupantes = ? flag = 1 WHERE ? = ID_Reserva");
 						
 						statementPrepared.setFloat(1, TReserva.getPrecio());
@@ -49,10 +49,11 @@ public class DAOReservaImp implements DAOReserva {
 						statementPrepared.setDate(3, TReserva.getFechaSalida());
 						
 						statementPrepared.setInt(4, ID_Cliente);
+						statementPrepared.setInt(5, ID_Habitacion);
 						
-						statementPrepared.setInt(5, TReserva.getNumOcupantes());
+						statementPrepared.setInt(6, TReserva.getNumOcupantes());
 						
-						statementPrepared.setInt(6, TReserva.getID_Reserva());
+						statementPrepared.setInt(7, TReserva.getID_Reserva());
 						
 						statementPrepared.executeUpdate();
 
@@ -70,7 +71,7 @@ public class DAOReservaImp implements DAOReserva {
 					//Si no, se hace Insert
 					try {
 						PreparedStatement statementPrepared = connection.prepareStatement(
-								"INSERT INTO Reserva (Precio, FechaEntrada, FechaSalida, ID_Cliente, ID_Habitacion, NumeroOcupantes, ID_Reserva, flag) VALUES (?,?,?,?,?,?,?,?)");
+								"INSERT INTO Reserva (Precio, FechaEntrada, FechaSalida, ID_Cliente, ID_Habitacion, NumeroOcupantes, flag) VALUES (?,?,?,?,?,?,?)");
 					
 						statementPrepared.setFloat(1, TReserva.getPrecio());
 						
@@ -80,13 +81,11 @@ public class DAOReservaImp implements DAOReserva {
 						
 						statementPrepared.setInt(4, ID_Cliente);
 						
-						statementPrepared.setInt(5, -1);
+						statementPrepared.setInt(5, ID_Habitacion);
 						
 						statementPrepared.setInt(6, TReserva.getNumOcupantes());
-						
-						statementPrepared.setInt(7, TReserva.getID_Reserva());
-						
-						statementPrepared.setInt(8, 1);
+												
+						statementPrepared.setInt(7, 1);
 						
 						statementPrepared.executeUpdate();
 						

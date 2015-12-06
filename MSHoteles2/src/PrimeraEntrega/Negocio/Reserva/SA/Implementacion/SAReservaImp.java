@@ -37,13 +37,13 @@ public class SAReservaImp implements SAReserva {
 				
 				transaccion.start();
 				
-				DAOReserva daoReserva = FactoriaDAO.getInstance().getDaoReserva();
+				DAOReserva daoReserva = FactoriaDAO.getInstance().getDAOReserva();
 				
 				//Comprobaci�n del Cliente
-				DAOCliente daoCliente = FactoriaDAO.getInstance().getDaoCliente();
+				DAOCliente daoCliente = FactoriaDAO.getInstance().getDAOCliente();
 				
 				//Comprobaci�n de la Habitaci�n
-				DAOHabitacion daoHabitacion = FactoriaDAO.getInstance().getDaoHabitacion();
+				DAOHabitacion daoHabitacion = FactoriaDAO.getInstance().getDAOHabitacion();
 				
 				int id_cliente = daoCliente.getId(TReserva.getDniCliente());
 				
@@ -74,8 +74,8 @@ public class SAReservaImp implements SAReserva {
 
 								id_Habitaciones.add(id_habitacion);
 								TReserva.setId_Habitaciones(id_Habitaciones);
-								
-									int valorCreacion = daoReserva.nuevaReserva(TReserva,id_cliente);
+								TReserva.setId(-1);
+									int valorCreacion = daoReserva.nuevaReserva(TReserva,id_cliente, id_habitacion);
 						
 									//Si devuelve un id correcto
 									if(valorCreacion != 0){
@@ -119,7 +119,7 @@ public class SAReservaImp implements SAReserva {
 		
 		transaccion.start();
 		
-		DAOReserva daoReserva = FactoriaDAO.getInstance().getDaoReserva();
+		DAOReserva daoReserva = FactoriaDAO.getInstance().getDAOReserva();
 		
 		TransferReserva transferBuscado = daoReserva.mostrarReserva(id);
 		
@@ -150,11 +150,11 @@ public class SAReservaImp implements SAReserva {
 		
 		transaccion.start();
 		
-		DAOReserva daoReserva = FactoriaDAO.getInstance().getDaoReserva();
+		DAOReserva daoReserva = FactoriaDAO.getInstance().getDAOReserva();
 		
 
 		//Comprobaci�n de la Habitaci�n
-		DAOHabitacion daoHabitacion = FactoriaDAO.getInstance().getDaoHabitacion();
+		DAOHabitacion daoHabitacion = FactoriaDAO.getInstance().getDAOHabitacion();
 		
 				int id_habitacion = daoHabitacion.getId(TReserva.getNumHabitacion());
 				
@@ -209,11 +209,11 @@ public class SAReservaImp implements SAReserva {
 				
 				transaccion.start();
 				
-				DAOReserva daoReserva = FactoriaDAO.getInstance().getDaoReserva();
+				DAOReserva daoReserva = FactoriaDAO.getInstance().getDAOReserva();
 				
 
 				//Comprobaci�n de la Habitaci�n
-				DAOHabitacion daoHabitacion = FactoriaDAO.getInstance().getDaoHabitacion();
+				DAOHabitacion daoHabitacion = FactoriaDAO.getInstance().getDAOHabitacion();
 				
 						int id_habitacion = daoHabitacion.getId(TReserva.getNumHabitacion());
 						

@@ -133,7 +133,7 @@ public class GUIMostrarHabitacion extends javax.swing.JFrame implements Vista {
 
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {  
    	 
-    	ControladorImp.getInstancia().execute(Evento.MOSTRAR_HABITACION, jFormattedTextFieldNumero.getText());
+    	ControladorImp.getInstancia().execute(Evento.MOSTRAR_HABITACION, Integer.valueOf(jFormattedTextFieldNumero.getText()));
         // TODO add your handling code here:
     }   
     /**
@@ -185,7 +185,6 @@ public class GUIMostrarHabitacion extends javax.swing.JFrame implements Vista {
 		//Borra lo anterior
     	
     	 jFormattedTextFieldPiso.setText("");
-         jFormattedTextFieldNumero.setText("");
          jFormattedTextFieldTipo.setText("");
          
    

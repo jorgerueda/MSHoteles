@@ -38,7 +38,7 @@ public class DAOClienteImp implements DAOCliente {
 
 				Connection connection = (Connection) transaction.getResource();
 				
-				//Si no esta activada y tiene id, es decir, que ya existía
+				//Si no esta activada y tiene id, es decir, que ya existï¿½a
 				//Se hace Update
 				if((!TCliente.isActivo()&&TCliente.getID_Cliente() >= 0)){
 					
@@ -73,17 +73,15 @@ public class DAOClienteImp implements DAOCliente {
 					//Parte general de todos los tipos de clientes
 					try {
 						PreparedStatement statementPrepared = connection.prepareStatement(
-								"INSERT INTO Clientes (Nombre, Apellidos, DNI, ID_Cliente, flag) VALUES (?,?,?,?,?)");
+								"INSERT INTO Cliente (Nombre, Apellidos, DNI, flag) VALUES (?,?,?,?)");
 					
 						statementPrepared.setString(1, TCliente.getNombre());
 						
 						statementPrepared.setString(2,  TCliente.getApellidos());
 						
 						statementPrepared.setString(3,  TCliente.getDni());
-						
-						statementPrepared.setInt(4, TCliente.getID_Cliente());
-						
-						statementPrepared.setInt(5, 1);
+												
+						statementPrepared.setInt(4, 1);
 						
 						statementPrepared.executeUpdate();
 						
@@ -102,6 +100,7 @@ public class DAOClienteImp implements DAOCliente {
 							statementPrepared2.setInt(2, ((TransferClienteVip)TCliente).getDescuento());
 							
 							statementPrepared2.executeUpdate();
+							
 						}
 						else{
 							//Caso de cliente Estandar (No vip)
@@ -220,7 +219,7 @@ public class DAOClienteImp implements DAOCliente {
 							statementPrepared.executeUpdate();
 						}
 						else{
-							//Sino, se borra de la otra y se hace un insert (borrado físico)
+							//Sino, se borra de la otra y se hace un insert (borrado fï¿½sico)
 							
 							statementPrepared = connection.prepareStatement(
 									"DELETE FROM ClienteEstandar WHERE ? = ID_Cliente");
@@ -243,7 +242,7 @@ public class DAOClienteImp implements DAOCliente {
 					}
 				}
 				else if (TCliente.getClass() == TransferClienteStandar.class){
-					//Comprobamos si está en la tabla de Residentes no estudiantes
+					//Comprobamos si estï¿½ en la tabla de Residentes no estudiantes
 					statementPrepared = connection.prepareStatement(
 							"Select * From ClienteEstandar WHERE ? = ID_Cliente");
 					
@@ -271,7 +270,7 @@ public class DAOClienteImp implements DAOCliente {
 							statementPrepared.executeUpdate();
 						}
 						else{
-							//Sino, se borra de la otra y se hace un insert (borrado físico)
+							//Sino, se borra de la otra y se hace un insert (borrado fï¿½sico)
 							
 							statementPrepared = connection.prepareStatement(
 									"DELETE FROM ClienteVip WHERE ? = ID_Cliente");
@@ -342,7 +341,7 @@ public class DAOClienteImp implements DAOCliente {
 					((TransferClienteVip)TCliente).setDescuento(rs3.getInt("Descuento"));
 				}
 				else{
-					//Si no ya sabemos que es estándar.
+					//Si no ya sabemos que es estï¿½ndar.
 					TCliente = new TransferClienteStandar();
 					
 					statementPrepared = null;
@@ -384,7 +383,7 @@ public class DAOClienteImp implements DAOCliente {
 			//Comprueba si se ha devuelto algo en la consulta
 			if((rs != null)&&(resultadoConsulta)){					
 				
-				//Aplica los datos que había en la BD al transfer
+				//Aplica los datos que habï¿½a en la BD al transfer
 				TCliente.setDni(rs.getString("DNI"));	
 				TCliente.setNombre(rs.getString("Nombre"));
 				TCliente.setApellidos(rs.getString("Apellidos"));
@@ -401,7 +400,7 @@ public class DAOClienteImp implements DAOCliente {
 				
 				//Obtiene el ID de las reservas del cliente
 				statementPrepared = connection.prepareStatement(
-						"SELECT * FROM Reservas WHERE ID_Cliente = ? AND Activo = 1 FOR UPDATE");
+						"SELECT * FROM Reserva WHERE ID_Cliente = ? AND flag = 1 FOR UPDATE");
 				
 				statementPrepared.setInt(1, id);
 				
@@ -416,7 +415,7 @@ public class DAOClienteImp implements DAOCliente {
 					//Reajustamos el puntero
 					rs2.beforeFirst();
 					
-					//Recorre las facturas de esa habitación y añade sus id al transfer
+					//Recorre las facturas de esa habitaciï¿½n y aï¿½ade sus id al transfer
 					while(rs2.next()){
 						TCliente.getId_reservas_cliente().add(rs2.getInt("ID_reserva"));
 					}
@@ -458,7 +457,7 @@ public class DAOClienteImp implements DAOCliente {
 			rs = s.executeQuery(query);
 			
 			while(rs.next()) {
-				//no es necesario dividir en ifs ya que si no es dará null
+				//no es necesario dividir en ifs ya que si no es darï¿½ null
 				PreparedStatement statementPrepared = connection.prepareStatement(
 						"SELECT * FROM ClienteVip v, Cliente c WHERE v.ID_Cliente = c.ID_Cliente FOR UPDATE");
 				

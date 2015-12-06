@@ -31,7 +31,7 @@ public class SAHabitacionImp implements SAHabitacion {
 			
 			transaccion.start();
 			
-			DAOHabitacion daoHabitacion = FactoriaDAO.getInstance().getDaoHabitacion();
+			DAOHabitacion daoHabitacion = FactoriaDAO.getInstance().getDAOHabitacion();
 			
 			int id_hab = daoHabitacion.getId(THabitacion.getNumero());
 			
@@ -61,6 +61,9 @@ public class SAHabitacionImp implements SAHabitacion {
 				}
 			}
 			else{
+				
+				THabitacion.setID_Habitacion(id_hab);
+
 				int valorCreacion = daoHabitacion.altaHabitacion(THabitacion);
 				
 				//Si devuelve un id correcto
@@ -86,7 +89,7 @@ public class SAHabitacionImp implements SAHabitacion {
 		
 		transaccion.start();
 		
-		DAOHabitacion daoHabitacion = FactoriaDAO.getInstance().getDaoHabitacion();
+		DAOHabitacion daoHabitacion = FactoriaDAO.getInstance().getDAOHabitacion();
 		
 		TransferHabitacion transferBuscado = daoHabitacion.mostrarHabitacion(daoHabitacion.getId(num_habitacion));
 		

@@ -68,7 +68,7 @@ public class DAOHabitacionImp implements DAOHabitacion {
 			//Si no, se hace Insert
 			try {
 				PreparedStatement statementPrepared = connection.prepareStatement(
-						"INSERT INTO Habitacion (Piso, Ocupado, Numero, Tipo, ID_Habitacion, flag) VALUES (?,?,?,?,?,?)");
+						"INSERT INTO Habitacion (Piso, Ocupado, Numero, Tipo, flag) VALUES (?,?,?,?,?)");
 			
 				statementPrepared.setInt(1, THabitacion.getPiso());
 				
@@ -77,10 +77,8 @@ public class DAOHabitacionImp implements DAOHabitacion {
 				statementPrepared.setInt(3,  THabitacion.getNumero());
 				
 				statementPrepared.setString(4, THabitacion.getTipo());
-				
-				statementPrepared.setInt(5, THabitacion.getID_Habitacion());
-				
-				statementPrepared.setInt(6, 1);
+								
+				statementPrepared.setInt(5, 1);
 				
 				statementPrepared.executeUpdate();
 				
@@ -109,7 +107,6 @@ public class DAOHabitacionImp implements DAOHabitacion {
 		Connection connection = (Connection) transaction.getResource();
 		
 		try {
-			THabitacion.setID_Habitacion(id_hab);
 		
 			PreparedStatement statementPrepared = connection.prepareStatement(
 					"SELECT * FROM Habitacion WHERE ID_Habitacion = ? FOR UPDATE");
@@ -124,7 +121,8 @@ public class DAOHabitacionImp implements DAOHabitacion {
 			
 			//Comprueba si se ha devuelto algo en la consulta
 			if((rs != null)&&(resultadoConsulta)){					
-				
+				THabitacion= new TransferHabitacion();
+				THabitacion.setId(id_hab);
 				//Aplica los datos que hab�a en la BD al transfer
 				THabitacion.setPiso(rs.getInt("Piso"));	
 				THabitacion.setNumero(rs.getInt("Numero"));

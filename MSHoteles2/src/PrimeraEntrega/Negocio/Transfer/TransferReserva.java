@@ -4,6 +4,7 @@
 package PrimeraEntrega.Negocio.Transfer;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 /** 
@@ -35,6 +36,14 @@ public class TransferReserva {
 	private List<Integer> id_Habitaciones;
 	
 
+	
+	public TransferReserva(){
+		
+		//Crea la lista
+		id_Habitaciones = new ArrayList<Integer>();
+		
+		activo = true; //Se crea estando activo
+	}
 	
 	public int getID_Reserva() {
 		return ID_Reserva;
