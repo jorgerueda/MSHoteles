@@ -179,8 +179,10 @@ public class GUIAltaCliente extends javax.swing.JFrame implements Vista {
 	}
 
 	private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {
-
-		TransferCliente transferCliente;
+		if (jFormattedTextFieldDNI.getText().isEmpty() && jFormattedTextFieldNombre.getText().isEmpty()  &&jFormattedTextFieldApellidos.getText().isEmpty() ){
+			JOptionPane.showMessageDialog(null, "ERROR!! Rellene todos los campos", "Nuevo Cliente",
+					JOptionPane.ERROR_MESSAGE);
+		}else{TransferCliente transferCliente;
 
 		if (jRadioButtonTipo.isSelected()) {
 			transferCliente = new TransferClienteVip();
@@ -199,6 +201,9 @@ public class GUIAltaCliente extends javax.swing.JFrame implements Vista {
 		transferCliente.setApellidos(jFormattedTextFieldApellidos.getText());
 
 		ControladorImp.getInstancia().execute(Evento.ALTA_CLIENTE, transferCliente);
+		}
+			
+		
 		// TODO add your handling code here:
 	}
 

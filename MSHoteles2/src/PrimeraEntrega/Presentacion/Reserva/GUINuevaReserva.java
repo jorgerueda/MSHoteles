@@ -184,7 +184,11 @@ public class GUINuevaReserva extends javax.swing.JFrame {
 	}
 
 	private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {
-
+		if(jFormattedTextFieldDNICliente.getText().isEmpty()&&jFormattedTextFieldNumOcupantes.getText().isEmpty()&&jFormattedTextFieldPrecio.getText().isEmpty()){
+			JOptionPane.showMessageDialog(null, "ERROR!! Rellene todos los campos", "Nuevo Reserva",
+					JOptionPane.ERROR_MESSAGE);
+		}else{
+		
 		TransferReserva transferReserva = new TransferReserva();
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -204,6 +208,7 @@ public class GUINuevaReserva extends javax.swing.JFrame {
 		transferReserva.setPrecio(Integer.valueOf(jFormattedTextFieldPrecio.getText()));
 
 		ControladorImp.getInstancia().execute(Evento.ALTA_RESERVA, transferReserva);
+		}
 		// TODO add your handling code here:
 	}
 

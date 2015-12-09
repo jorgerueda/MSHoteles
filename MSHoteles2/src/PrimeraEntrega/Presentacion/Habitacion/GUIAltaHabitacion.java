@@ -117,7 +117,9 @@ public class GUIAltaHabitacion extends javax.swing.JFrame implements Vista {
     }// </editor-fold>                        
 
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {  
-   	 
+   	 if(jFormattedTextFieldPiso.getText().isEmpty()&&jFormattedTextFieldNumero.getText().isEmpty()&&jFormattedTextFieldTipo.getText().isEmpty()){
+   		JOptionPane.showMessageDialog(null, "ERROR!! Rellene todos los campos", "Nuevo Habitacion", JOptionPane.ERROR_MESSAGE); 
+   	 }else{
     	TransferHabitacion transferHabitacion = new TransferHabitacion();
   	 
   	   
@@ -126,6 +128,7 @@ public class GUIAltaHabitacion extends javax.swing.JFrame implements Vista {
   	   transferHabitacion.setTipo(jFormattedTextFieldTipo.getText());  
   	   
          ControladorImp.getInstancia().execute(Evento.ALTA_HABITACION, transferHabitacion);
+   	 }
         // TODO add your handling code here:
     }   
    
