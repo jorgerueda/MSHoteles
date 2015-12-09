@@ -164,10 +164,10 @@ public class GUIAnadirHabitacion extends javax.swing.JFrame {
         jFormattedTextFieldIDReserva.setText("");
         jFormattedTextFieldnumHabitacion.setText("");
 		
-		if(id_evento_vista == EventoVista.AÑADIR_HABITACION_EXITO){
+		if(id_evento_vista == EventoVista.ADD_HABITACION_EXITO){
 			JOptionPane.showMessageDialog(null, "Se ha anadido la habitacion con exito", "Anadir Habitacion", JOptionPane.INFORMATION_MESSAGE);		
 		}	
-		else if (id_evento_vista == EventoVista.AÑADIR_HABITACION_FALLO){
+		else if (id_evento_vista == EventoVista.ADD_HABITACION_FALLO){
 			JOptionPane.showMessageDialog(null, "ERROR!! Ha ocurrido un error con la BD", "Anadir Habitacion", JOptionPane.ERROR_MESSAGE);
 		}
 		
