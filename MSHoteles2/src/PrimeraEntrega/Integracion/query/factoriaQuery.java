@@ -1,7 +1,5 @@
 package PrimeraEntrega.Integracion.query;
 
-import javax.management.Query;
-
 import PrimeraEntrega.Integracion.query.imp.factoriaQueryImp;
 
 public abstract class factoriaQuery {

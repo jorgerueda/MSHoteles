@@ -24,15 +24,15 @@ public class comandoMostrarClientes extends Comando {
 	@Override
 	public RetornoComando execute() {
 
-		List<TransferCliente> lista_residentes = FactoriaSA.getInstancia().generaSACliente().mostrarClientes();
+		List<TransferCliente> lista_clientes = FactoriaSA.getInstancia().generaSACliente().mostrarClientes();
 		
 		RetornoComando retornoComando;
 
-		if(lista_residentes.size() > 0){
-			retornoComando = new RetornoComando(EventoVista.MOSTRAR_CLIENTES_EXITO,lista_residentes); //crea la respuesta de comando
+		if(lista_clientes.size() > 0){
+			retornoComando = new RetornoComando(EventoVista.MOSTRAR_CLIENTES_EXITO,lista_clientes); //crea la respuesta de comando
 		}
 		else{
-			retornoComando = new RetornoComando(EventoVista.MOSTRAR_CLIENTES_FALLO,lista_residentes); //crea la respuesta de comando
+			retornoComando = new RetornoComando(EventoVista.MOSTRAR_CLIENTES_FALLO,lista_clientes); //crea la respuesta de comando
 		}
 		
 		return retornoComando;

@@ -6,6 +6,7 @@ package PrimeraEntrega.Negocio.Cliente.SA.Implementacion;
 import PrimeraEntrega.Negocio.Cliente.SA.SACliente;
 import PrimeraEntrega.Negocio.Transfer.TransferCliente;
 
+
 import java.util.List;
 
 import PrimeraEntrega.Integracion.Cliente.DAOCliente;
@@ -14,6 +15,7 @@ import PrimeraEntrega.Integracion.Habitacion.DAOHabitacion;
 import PrimeraEntrega.Integracion.Reserva.DAOReserva;
 import PrimeraEntrega.Integracion.Transaccion.Transaccion;
 import PrimeraEntrega.Integracion.TransactionManager.TransactionManager;
+import PrimeraEntrega.Integracion.query.Query;
 import PrimeraEntrega.Integracion.query.factoriaQuery;
 
 
@@ -259,5 +261,28 @@ public class SAClienteImp implements SACliente {
 				TransactionManager.getInstancia().eliminarTransaccion();
 				
 				return lista_Clientes;
+	}
+
+
+	@Override
+	public List<TransferCliente> mostrarClienteNReservas(int Reservas) {
+		Transaccion transaccion = TransactionManager.getInstancia().nuevaTransaccion();
+		
+		transaccion.start();
+		
+		
+		
+		
+		//Ejecuta la Query
+		List<TransferCliente> lista_Clientes = (List<TransferCliente>) factoriaQuery.getInstance().getQuery(206).execute(Reservas);
+		
+		//En los mostrar para evitar bloqueos
+		transaccion.commit();
+		
+		//Elimina la transaccion
+		TransactionManager.getInstancia().eliminarTransaccion();
+		
+	
+		return lista_Clientes;
 	}
 }

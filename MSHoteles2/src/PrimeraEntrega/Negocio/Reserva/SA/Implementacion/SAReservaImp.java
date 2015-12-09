@@ -39,15 +39,14 @@ public class SAReservaImp implements SAReserva {
 				
 				DAOReserva daoReserva = FactoriaDAO.getInstance().getDAOReserva();
 				
-				//Comprobaci�n del Cliente
+				//paraComprobaci�n del Cliente
 				DAOCliente daoCliente = FactoriaDAO.getInstance().getDAOCliente();
 				
-				//Comprobaci�n de la Habitaci�n
-				DAOHabitacion daoHabitacion = FactoriaDAO.getInstance().getDAOHabitacion();
+				//para Comprobacion de la Habitaci�n
 				
 				int id_cliente = daoCliente.getId(TReserva.getDniCliente());
 				
-				//Comprobaci�n de si existe ese Cliente con ese id
+				//Comprobacin de si existe ese Cliente con ese id
 				TransferCliente transferBuscadoCliente = daoCliente.mostrarCliente(id_cliente);
 			
 				if((transferBuscadoCliente != null)&&(transferBuscadoCliente.getDni().equals(TReserva.getDniCliente()))){
@@ -60,22 +59,12 @@ public class SAReservaImp implements SAReserva {
 						//En el campo id, ponemos el ID del Cliente
 						TReserva.setIdCliente(id_cliente);
 						//Comprueba la habitaci�n
-						
-						int id_habitacion = daoHabitacion.getId(TReserva.getNumHabitacion());
-						
-						//Comprobaci�n de si existe ese Cliente con ese id
-						TransferHabitacion transferBuscadoHabitacion = daoHabitacion.mostrarHabitacion(id_habitacion);
-						
-						if((transferBuscadoHabitacion != null)&&(transferBuscadoHabitacion.getNumero()==(TReserva.getNumHabitacion()))){
-						
-							if(transferBuscadoHabitacion.isActivo()){
+												
 								
-								List<Integer> id_Habitaciones=TReserva.getId_Habitaciones();
+								int id_reserva = daoReserva.getId(TReserva.getFechaEntrada(), TReserva.getFechaSalida(), id_cliente);
 
-								id_Habitaciones.add(id_habitacion);
-								TReserva.setId_Habitaciones(id_Habitaciones);
 								TReserva.setId(-1);
-									int valorCreacion = daoReserva.nuevaReserva(TReserva,id_cliente, id_habitacion);
+									int valorCreacion = daoReserva.nuevaReserva(TReserva,id_cliente);
 						
 									//Si devuelve un id correcto
 									if(valorCreacion != 0){
@@ -86,13 +75,9 @@ public class SAReservaImp implements SAReserva {
 										valorDevuelto = -2;
 										transaccion.rollback();
 									}
-							}
 							
-						}else{
-							//No existe Habitacion o no est� activo
-							valorDevuelto = -1;
-							transaccion.rollback();
-							}
+							
+					
 					}
 					else{
 					//No existe Cliente o no est� activo
@@ -229,7 +214,7 @@ public class SAReservaImp implements SAReserva {
 									id_Habitaciones.remove(id_habitacion);
 									TReserva.setId_Habitaciones(id_Habitaciones);
 								
-									int valorCreacion = daoReserva.quitarHabitacion(TReserva);
+									int valorCreacion = daoReserva.quitarHabitacion(TReserva,id_habitacion);
 						
 									//Si devuelve un id correcto
 									if(valorCreacion != 0){

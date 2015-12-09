@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import PrimeraEntrega.Integracion.Cliente.DAOCliente;
 import PrimeraEntrega.Integracion.Transaccion.Transaccion;
@@ -144,7 +145,7 @@ public class DAOClienteImp implements DAOCliente {
 
 		try {
 				PreparedStatement statementPrepared = connection.prepareStatement(
-						"UPDATE Clientes SET flag = false WHERE ? = ID_Cliente");
+						"UPDATE Cliente SET flag = false WHERE ? = ID_Cliente");
 				
 				statementPrepared.setInt(1, id);
 				
@@ -176,7 +177,7 @@ public class DAOClienteImp implements DAOCliente {
 
 		try {
 				PreparedStatement statementPrepared = connection.prepareStatement(
-						"UPDATE Clientes SET Nombre = ?, Apellidos = ?, DNI = ? WHERE ? = ID_Cliente");
+						"UPDATE Cliente SET Nombre = ?, Apellidos = ?, DNI = ? WHERE ? = ID_Cliente");
 				
 				statementPrepared.setString(1, TCliente.getNombre());
 				
@@ -265,7 +266,7 @@ public class DAOClienteImp implements DAOCliente {
 							
 							statementPrepared.setInt(1, ((TransferClienteStandar)TCliente).getPuntosAcumulados());
 							
-							statementPrepared.setInt(3, TCliente.getID_Cliente());
+							statementPrepared.setInt(2, TCliente.getID_Cliente());
 							
 							statementPrepared.executeUpdate();
 						}
@@ -440,7 +441,7 @@ public class DAOClienteImp implements DAOCliente {
 	 * @see DAOCliente#mostrarClientes()
 	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
 	 */
-	@Override
+	/*@Override
 	public ArrayList<TransferCliente> mostrarClientes() {
 		TransferCliente TCliente = null;
 		ArrayList<TransferCliente> ret = new ArrayList<TransferCliente>();
@@ -451,8 +452,9 @@ public class DAOClienteImp implements DAOCliente {
 		
 		ResultSet rs;
 		Statement s;
-		String query = "SELECT * FROM Cliente;";
+		String query = "SELECT * FROM Cliente";
 		try {
+			
 			s = TransactionManager.getInstancia().getTransaccion().getResource().createStatement();
 			rs = s.executeQuery(query);
 			
@@ -492,6 +494,31 @@ public class DAOClienteImp implements DAOCliente {
 			e.printStackTrace();
 		}
 		return ret;			
+	}*/
+	@Override
+	public ArrayList<TransferCliente> mostrarClientes() {
+		ArrayList<TransferCliente> ret = new ArrayList<TransferCliente>();
+		ResultSet rs;
+		Statement s;
+		String query = "SELECT * FROM Cliente WHERE flag = 1 ";
+		try {
+			s = TransactionManager.getInstancia().getTransaccion().getResource().createStatement();
+			rs = s.executeQuery(query);
+			while(rs.next()) {
+				TransferCliente transfer = new TransferCliente();
+				transfer.setID_Cliente(Integer.valueOf(rs.getString("ID_Cliente")));
+				transfer.setDni(rs.getString("DNI"));
+				transfer.setNombre(rs.getString("Nombre"));
+				transfer.setApellidos(rs.getString("Apellidos"));
+				
+				ret.add(transfer);
+			}
+			s.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		// end-user-code
+		return ret;
 	}
 
 
@@ -526,5 +553,12 @@ public class DAOClienteImp implements DAOCliente {
 		}
 		
 		return valorDevuelto;
+	}
+
+
+	@Override
+	public List<TransferCliente> mostrarClientesNReservas() {
+		// TODO Auto-generated method stub
+		return null;
 	}	
 }

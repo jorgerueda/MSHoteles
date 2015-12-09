@@ -8,10 +8,13 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 import PrimeraEntrega.Integracion.Reserva.DAOReserva;
 import PrimeraEntrega.Integracion.Transaccion.Transaccion;
 import PrimeraEntrega.Integracion.TransactionManager.TransactionManager;
+import PrimeraEntrega.Negocio.Transfer.TransferCliente;
 import PrimeraEntrega.Negocio.Transfer.TransferHabitacion;
 import PrimeraEntrega.Negocio.Transfer.TransferReserva;
 
@@ -24,7 +27,7 @@ import PrimeraEntrega.Negocio.Transfer.TransferReserva;
 public class DAOReservaImp implements DAOReserva {
 
 	@Override
-	public int nuevaReserva(TransferReserva TReserva, int ID_Cliente, int ID_Habitacion) {
+	public int nuevaReserva(TransferReserva TReserva, int ID_Cliente) {
 		//Si no se cambia el valor, devuelve error
 				int valorDevuelto = -1;
 				
@@ -39,7 +42,7 @@ public class DAOReservaImp implements DAOReserva {
 					PreparedStatement statementPrepared;
 					try {
 						statementPrepared = connection.prepareStatement(
-								"UPDATE Reserva SET Precio = ? , FechaEntrada = ?, FechaSalida = ?, ID_Cliente = ?, ID_Habitacion = ?"
+								"UPDATE Reserva SET Precio = ? , FechaEntrada = ?, FechaSalida = ?, ID_Cliente = ?"
 								+ "NumeroOcupantes = ? flag = 1 WHERE ? = ID_Reserva");
 						
 						statementPrepared.setFloat(1, TReserva.getPrecio());
@@ -49,11 +52,10 @@ public class DAOReservaImp implements DAOReserva {
 						statementPrepared.setDate(3, TReserva.getFechaSalida());
 						
 						statementPrepared.setInt(4, ID_Cliente);
-						statementPrepared.setInt(5, ID_Habitacion);
 						
-						statementPrepared.setInt(6, TReserva.getNumOcupantes());
+						statementPrepared.setInt(5, TReserva.getNumOcupantes());
 						
-						statementPrepared.setInt(7, TReserva.getID_Reserva());
+						statementPrepared.setInt(6, TReserva.getID_Reserva());
 						
 						statementPrepared.executeUpdate();
 
@@ -71,21 +73,19 @@ public class DAOReservaImp implements DAOReserva {
 					//Si no, se hace Insert
 					try {
 						PreparedStatement statementPrepared = connection.prepareStatement(
-								"INSERT INTO Reserva (Precio, FechaEntrada, FechaSalida, ID_Cliente, ID_Habitacion, NumeroOcupantes, flag) VALUES (?,?,?,?,?,?,?)");
+								"INSERT INTO Reserva (Precio, FechaEntrada, FechaSalida, ID_Cliente, NumeroOcupantes, flag) VALUES (?,?,?,?,?,?)");
 					
 						statementPrepared.setFloat(1, TReserva.getPrecio());
 						
-						statementPrepared.setDate(2,  TReserva.getFechaEntrada());
+						statementPrepared.setDate(2, TReserva.getFechaEntrada());
 						
-						statementPrepared.setDate(3,  TReserva.getFechaSalida());
+						statementPrepared.setDate(3, TReserva.getFechaSalida());
 						
 						statementPrepared.setInt(4, ID_Cliente);
-						
-						statementPrepared.setInt(5, ID_Habitacion);
-						
-						statementPrepared.setInt(6, TReserva.getNumOcupantes());
 												
-						statementPrepared.setInt(7, 1);
+						statementPrepared.setInt(5, TReserva.getNumOcupantes());
+												
+						statementPrepared.setInt(6, 1);
 						
 						statementPrepared.executeUpdate();
 						
@@ -121,15 +121,17 @@ public class DAOReservaImp implements DAOReserva {
 			PreparedStatement statementPrepared;
 			try {
 				statementPrepared = connection.prepareStatement(
-						"UPDATE Reserva SET ID_Habitacion = ? WHERE ? = ID_Reserva");
+						"INSERT INTO HabitacionesReservadas (ID_Habitacion,ID_Reserva) VALUES (?,?)");
 				
-				statementPrepared.setInt(1, ID_Habitacion);			
+				statementPrepared.setInt(1, ID_Habitacion);
+				statementPrepared.setInt(2, TReserva.getID_Reserva());			
+
 				
 				statementPrepared.executeUpdate();
 
-				valorDevuelto = 0;
+				valorDevuelto = 1;
 			} catch (SQLException e) {
-				System.err.println("Error, no se ha podido a�adir la habitacion a la reserva");
+				System.err.println("Error, no se ha podido anadir la habitacion a la reserva");
 				valorDevuelto = -1;
 				e.printStackTrace();
 			}
@@ -138,7 +140,7 @@ public class DAOReservaImp implements DAOReserva {
 	}
 
 	@Override
-	public int quitarHabitacion(TransferReserva TReserva) {
+	public int quitarHabitacion(TransferReserva TReserva,int ID_Habitacion) {
 		int valorDevuelto = 0;
 		
 		Transaccion transaction = TransactionManager.getInstancia().getTransaccion();
@@ -152,15 +154,16 @@ public class DAOReservaImp implements DAOReserva {
 			PreparedStatement statementPrepared;
 			try {
 				statementPrepared = connection.prepareStatement(
-						"UPDATE Reserva SET ID_Habitacion = ? WHERE ? = ID_Reserva");
+						"DELETE FROM HabitacionesReservadas WHERE ID_Reserva = ? AND ID_Habitacion = ?");
 				
-				statementPrepared.setInt(1, -1);	//Si el id est� a -1 es que no tiene habitaci�n		
-				
+				statementPrepared.setInt(1, TReserva.getID_Reserva());
+				statementPrepared.setInt(2,ID_Habitacion );
+
 				statementPrepared.executeUpdate();
 
-				valorDevuelto = 0;
+				valorDevuelto = 1;
 			} catch (SQLException e) {
-				System.err.println("Error, no se ha podido a�adir la habitacion a la reserva");
+				System.err.println("Error, no se ha podido quitar la habitacion a la reserva");
 				valorDevuelto = -1;
 				e.printStackTrace();
 			}
@@ -177,7 +180,6 @@ public class DAOReservaImp implements DAOReserva {
 		Connection connection = (Connection) transaction.getResource();
 		
 		try {
-			TReserva.setID_Reserva(id);
 		
 			PreparedStatement statementPrepared = connection.prepareStatement(
 					"SELECT * FROM Reserva WHERE ID_Reserva = ? FOR UPDATE");
@@ -193,12 +195,17 @@ public class DAOReservaImp implements DAOReserva {
 			//Comprueba si se ha devuelto algo en la consulta
 			if((rs != null)&&(resultadoConsulta)){					
 				
+				TReserva = new TransferReserva();
+				TReserva.setID_Reserva(id);
+
 				//Aplica los datos que hab�a en la BD al transfer
 				TReserva.setPrecio(rs.getFloat("Precio"));
 				TReserva.setFechaEntrada(rs.getDate("FechaEntrada"));	
 				TReserva.setFechaSalida(rs.getDate("FechaSalida"));
 				TReserva.setIdCliente(rs.getInt("ID_Cliente"));
-				TReserva.setIdHabitacion(Integer.valueOf(rs.getInt("ID_Habitacion")));
+				TReserva.setNumOcupantes(Integer.valueOf(rs.getInt("NumeroOcupantes")));
+				TReserva.setId_Habitaciones(mostrarHabitacionesReserva(id));
+				
 				
 				
 				if(rs.getInt("flag") == 1){
@@ -250,7 +257,7 @@ public class DAOReservaImp implements DAOReserva {
 			
 			PreparedStatement statementPrepared;
 			try {
-				statementPrepared = connection.prepareStatement("SELECT ID_Reserva FROM Reserva WHERE FechaEntrada = ? AND FechaSalida = ? AND"
+				statementPrepared = connection.prepareStatement("SELECT ID_Reserva FROM Reserva WHERE FechaEntrada = ? AND FechaSalida = ? AND "
 						+ "ID_Cliente = ? FOR UPDATE");
 			
 				statementPrepared.setDate(1, entrada);
@@ -275,5 +282,33 @@ public class DAOReservaImp implements DAOReserva {
 			
 			return valorDevuelto;
 		}
+	
+	public ArrayList<Integer> mostrarHabitacionesReserva(int id_reserva) {
+		ArrayList<Integer> ret = new ArrayList<Integer>();
+		ResultSet rs;
+		
+		Transaccion transaction = TransactionManager.getInstancia().getTransaccion();
+
+		Connection connection = (Connection) transaction.getResource();
+		
+		PreparedStatement statementPrepared;
+		
+		try {
+			statementPrepared = connection.prepareStatement( "SELECT * FROM HabitacionesReservadas WHERE ID_Reserva = ? ");
+			statementPrepared.setInt(1, id_reserva);
+			statementPrepared.execute();
+			rs = statementPrepared.getResultSet();
+			while(rs.next()) {
+				
+				ret.add(Integer.valueOf(rs.getString("ID_Habitacion")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.err.println("Esa Reserva no tiene habitaciones");
+
+		}
+		// end-user-code
+		return ret;
+	}
 	
 }

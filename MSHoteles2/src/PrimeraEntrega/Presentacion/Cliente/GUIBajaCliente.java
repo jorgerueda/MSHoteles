@@ -48,7 +48,11 @@ public class GUIBajaCliente extends javax.swing.JFrame implements Vista {
         jLabelDNI.setText("DNI");
 
         jButtonAceptar.setText("Aceptar");
-
+        jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	jButtonAceptarActionPerformed(evt);
+            }
+        });
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -91,11 +95,9 @@ public class GUIBajaCliente extends javax.swing.JFrame implements Vista {
         realizarAccion();
     }  
     public void realizarAccion(){
-    	TransferCliente transferCliente= new TransferCliente();
 
-    	transferCliente.setDni(jFormattedTextFieldDNI.getText());
         
-        ControladorImp.getInstancia().execute(Evento.BAJA_CLIENTE, transferCliente);
+        ControladorImp.getInstancia().execute(Evento.BAJA_CLIENTE, jFormattedTextFieldDNI.getText());
     }
     /**
      * @param args the command line arguments

@@ -4,6 +4,7 @@
 package PrimeraEntrega.Integracion.Cliente;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import PrimeraEntrega.Negocio.Transfer.TransferCliente;
 
@@ -52,6 +53,8 @@ public interface DAOCliente {
 	
 	//necesitamos estos ,creo 
 	public int getId(String dni);
+
+	public List<TransferCliente> mostrarClientesNReservas();
 
 
 

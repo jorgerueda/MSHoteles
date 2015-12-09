@@ -58,7 +58,9 @@ public class GUINuevaReserva extends javax.swing.JFrame {
         jLabelDNICliente = new javax.swing.JLabel();
         jFormattedTextFieldDNICliente = new javax.swing.JFormattedTextField();
         jLabelNumHabitacion = new javax.swing.JLabel();
+        jLabelNumHabitacion.setVisible(false);
         jFormattedTextFieldNumHabitacion = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldNumHabitacion.setVisible(false);
         jFormattedTextFieldPrecio = new javax.swing.JFormattedTextField();
         jLabelNumOcupantes = new javax.swing.JLabel();
         jFormattedTextFieldNumOcupantes = new javax.swing.JFormattedTextField();
@@ -193,10 +195,9 @@ public class GUINuevaReserva extends javax.swing.JFrame {
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {  
    	 
     	TransferReserva transferReserva= new TransferReserva();
-    	SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
+    	SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
     	
     	transferReserva.setDniCliente(jFormattedTextFieldDNICliente.getText());
-    	transferReserva.setNumHabitacion(Integer.valueOf(jFormattedTextFieldNumHabitacion.getText()));
     	transferReserva.setNumOcupantes(Integer.valueOf(jFormattedTextFieldNumOcupantes.getText()));
     	
     	try {

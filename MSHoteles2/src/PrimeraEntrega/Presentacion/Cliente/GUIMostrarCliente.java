@@ -192,6 +192,8 @@ public class GUIMostrarCliente extends javax.swing.JFrame implements Vista {
                 jFormattedTextFieldNombre.setText("");
                 jFormattedTextFieldPuntos.setText("");
                 jFormattedTextFieldApellidos.setText("");
+                jTextAreaReservas.setText("");
+
         		
             }
         });
@@ -286,6 +288,7 @@ public class GUIMostrarCliente extends javax.swing.JFrame implements Vista {
          jFormattedTextFieldNombre.setText("");
          jFormattedTextFieldPuntos.setText("");
          jFormattedTextFieldApellidos.setText("");
+         jTextAreaReservas.setText("");
 		
          if(id_evento_vista == EventoVista.MOSTRAR_CLIENTE_EXITO){
      		TransferCliente t = (TransferCliente) datos;
@@ -306,7 +309,6 @@ public class GUIMostrarCliente extends javax.swing.JFrame implements Vista {
      		}
      	
  			//IDs de las facturas
-     		
      		jTextAreaReservas.append(" ID Reservas \n\n");
      		
  			for(int i: t.getId_reservas_cliente()){

@@ -63,7 +63,9 @@ public class GUIMostrarReserva extends javax.swing.JFrame {
         jLabelDNICliente = new javax.swing.JLabel();
         jFormattedTextFieldDNICliente = new javax.swing.JFormattedTextField();
         jLabelNumHabitacion = new javax.swing.JLabel();
+        jLabelNumHabitacion.setVisible(false);
         jFormattedTextFieldNumHabitacion = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldNumHabitacion.setVisible(false);
         jFormattedTextFieldPrecio = new javax.swing.JFormattedTextField();
         jLabelNumOcupantes = new javax.swing.JLabel();
         jFormattedTextFieldNumOcupantes = new javax.swing.JFormattedTextField();
@@ -93,7 +95,7 @@ public class GUIMostrarReserva extends javax.swing.JFrame {
             }
         });
 
-        jLabelDNICliente.setText("DNI cliente");
+        jLabelDNICliente.setText("ID cliente");
 
         jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,6 +215,8 @@ public class GUIMostrarReserva extends javax.swing.JFrame {
                 jFormattedTextFieldNumHabitacion.setText("");
                 jFormattedTextFieldNumOcupantes.setText("");
                 jFormattedTextFieldPrecio.setText("");
+                jTextAreaNumHabitacion.setText("");
+
         		
             }
         });
@@ -226,7 +230,7 @@ public class GUIMostrarReserva extends javax.swing.JFrame {
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {  
    	 
     	
-         ControladorImp.getInstancia().execute(Evento.ALTA_RESERVA,Integer.valueOf( jFormattedTextFieldIDReserva.getText()));
+         ControladorImp.getInstancia().execute(Evento.MOSTRAR_RESERVA,Integer.valueOf( jFormattedTextFieldIDReserva.getText()));
         // TODO add your handling code here:
     }                                                            
 
@@ -295,11 +299,12 @@ public class GUIMostrarReserva extends javax.swing.JFrame {
          jFormattedTextFieldNumHabitacion.setText("");
          jFormattedTextFieldNumOcupantes.setText("");
          jFormattedTextFieldPrecio.setText("");
+         jTextAreaNumHabitacion.setText("");
 		
          if(id_evento_vista == EventoVista.MOSTRAR_RESERVA_EXITO){
       		TransferReserva t = (TransferReserva) datos;
       		
-      		jFormattedTextFieldDNICliente.setText(t.getDniCliente());
+      		jFormattedTextFieldDNICliente.setText(String.valueOf(t.getIdCliente()));
       		 jFormattedTextFieldFechaEntrada.setText(String.valueOf(t.getFechaEntrada()));
              jFormattedTextFieldFechaSalida.setText(String.valueOf(t.getFechaSalida()));
              jFormattedTextFieldNumHabitacion.setText(String.valueOf(t.getNumHabitacion()));

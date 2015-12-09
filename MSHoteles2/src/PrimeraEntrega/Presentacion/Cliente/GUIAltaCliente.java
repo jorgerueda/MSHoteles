@@ -57,7 +57,7 @@ public class GUIAltaCliente extends javax.swing.JFrame implements Vista {
         jFormattedTextFieldDescuento = new javax.swing.JFormattedTextField();
         jButtonAceptar = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
-
+        jButtonCancelar.setVisible(false);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabelNombre.setText("Nombre");
@@ -69,8 +69,8 @@ public class GUIAltaCliente extends javax.swing.JFrame implements Vista {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
             	jRadioButtonTipoActionPerformed(evt);
             }
-        });
-
+        });	
+        jFormattedTextFieldDescuento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
         jFormattedTextFieldDescuento.setEnabled(false);
         jLabelDNI.setText("DNI");
 
@@ -284,13 +284,13 @@ public class GUIAltaCliente extends javax.swing.JFrame implements Vista {
          jFormattedTextFieldApellidos.setText("");
 		
 		if(id_evento_vista == EventoVista.ALTA_CLIENTE_EXITO){
-			JOptionPane.showMessageDialog(null, "Se ha creado el residente con exito", "Nuevo Residente", JOptionPane.INFORMATION_MESSAGE);		
+			JOptionPane.showMessageDialog(null, "Se ha creado el cliente con exito", "Nuevo Cliente", JOptionPane.INFORMATION_MESSAGE);		
 		}	
 		else if(id_evento_vista == EventoVista.ALTA_CLIENTE_DNI_YA_EXISTE){
-			JOptionPane.showMessageDialog(null, "ERROR!! El DNI introducido ya existe", "Nuevo Residente", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "ERROR!! El DNI introducido ya existe", "Nuevo Cliente", JOptionPane.ERROR_MESSAGE);
 		}
 		else if (id_evento_vista == EventoVista.ALTA_CLIENTE_FALLO){
-			JOptionPane.showMessageDialog(null, "ERROR!! Ha ocurrido un error con la BD", "Nuevo Residente", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "ERROR!! Ha ocurrido un error con la BD", "Nuevo Cliente", JOptionPane.ERROR_MESSAGE);
 		}
 		
 	}

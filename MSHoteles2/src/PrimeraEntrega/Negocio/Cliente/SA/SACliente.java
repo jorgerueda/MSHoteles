@@ -24,11 +24,11 @@ public interface SACliente {
 	 * Hace dos comprobaciones de ID:
 	 * 1: Para ver si existe es ID en el sistema
 	 * 2: Para obtener el ID en el caso de que no exista
-	 * Si está desactivada la habitación, la activa con la capacidad anterior
+	 * Si estï¿½ desactivada la habitaciï¿½n, la activa con la capacidad anterior
 	 * 
-	 * @param transferResidente La información del residente que se desea dar de alta
+	 * @param transferResidente La informaciï¿½n del residente que se desea dar de alta
 	 * @return Un flag indicando si se ha dado el residente de alta o no 
-	 *  Un número mayor o igual que 0, Alta exitosa (devuelve el ID en ese caso)
+	 *  Un nï¿½mero mayor o igual que 0, Alta exitosa (devuelve el ID en ese caso)
 	 * -1 dni ya existe y activo 
 	 * -2 Otro fallo
 	 */
@@ -36,10 +36,10 @@ public interface SACliente {
 
 	
 	/**
-	 * Permite borrar un cliente en el sistema (borrado lógico)
+	 * Permite borrar un cliente en el sistema (borrado lï¿½gico)
 	 * Debe ajustar lo correspondiente de las habitaciones (ocupantes)
 	 * @param dni El dni del residente que se desea dar de baja
-	 * @return flag indicando si se ha borrado la habitación o no
+	 * @return flag indicando si se ha borrado la habitaciï¿½n o no
 	 *  0 Borrado exitoso
 	 * -1 No existe el residente con ese dni
 	 * -2 Otro fallo
@@ -48,19 +48,19 @@ public interface SACliente {
 	public int bajaCliente(String DNI);
 
 	/**
-	 * Permite buscar un cliente  en el sistema y mostrar su información
-	 * En el caso de que ese cliente esté activa
+	 * Permite buscar un cliente  en el sistema y mostrar su informaciï¿½n
+	 * En el caso de que ese cliente estï¿½ activa
 	 * @param DNI El DNI del cliente que se quiere buscar
-	 * @return La información del cliente buscado (null si no la encuentra)
+	 * @return La informaciï¿½n del cliente buscado (null si no la encuentra)
 	 */
 	public TransferCliente mostrarCliente(String DNI);
 
 
 	/**
-	 * Permite obtener la información de los cliente del sistema
+	 * Permite obtener la informaciï¿½n de los cliente del sistema
 	 * Exclusivamente de los cliente activos
 	 * Devuelve una lista vacia en el caso de que no haya cliente
-	 * @return Una lista con la información de los cliente en el sistema
+	 * @return Una lista con la informaciï¿½n de los cliente en el sistema
 	 */
 	
 	public List<TransferCliente> mostrarClientes();
@@ -68,12 +68,15 @@ public interface SACliente {
 	/**
 	 * Permite modificar un cliente ya existente
 	 * Solo se puede modifcar aqullo que se considere modificable en cliente existentes y activos
-	 * @param transferClienteInformacionNueva la nueva información del cliente
-	 * @return Un flag indicando si se ha modificado la habitación o no
-	 *   0 Modificación exitosa
+	 * @param transferClienteInformacionNueva la nueva informaciï¿½n del cliente
+	 * @return Un flag indicando si se ha modificado la habitaciï¿½n o no
+	 *   0 Modificaciï¿½n exitosa
 	 *  -1 No existe el residente con ese dni
 	 *  -2 Otro fallo
 	 */
 	
 	public int modificarCliente(TransferCliente TCliente);
+
+
+	public List<TransferCliente> mostrarClienteNReservas(int Reservas);
 }

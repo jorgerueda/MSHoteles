@@ -13,8 +13,11 @@ import PrimeraEntrega.Presentacion.Cliente.GUIAltaCliente;
 import PrimeraEntrega.Presentacion.Cliente.GUIBajaCliente;
 import PrimeraEntrega.Presentacion.Cliente.GUIModificarCliente;
 import PrimeraEntrega.Presentacion.Cliente.GUIMostrarCliente;
+import PrimeraEntrega.Presentacion.Cliente.GUIMostrarClientes;
+import PrimeraEntrega.Presentacion.Cliente.GUIMostrarClientesNReservas;
 import PrimeraEntrega.Presentacion.Habitacion.GUIAltaHabitacion;
 import PrimeraEntrega.Presentacion.Habitacion.GUIMostrarHabitacion;
+import PrimeraEntrega.Presentacion.Habitacion.GUIMostrarHabitacionesNReservas;
 import PrimeraEntrega.Presentacion.Reserva.GUIAnadirHabitacion;
 import PrimeraEntrega.Presentacion.Reserva.GUIMostrarReserva;
 import PrimeraEntrega.Presentacion.Reserva.GUINuevaReserva;
@@ -47,9 +50,13 @@ public class PanelPrincipal extends javax.swing.JFrame {
 		botonBorrarCliente = new javax.swing.JMenuItem();
 		botonModifcarCliente = new javax.swing.JMenuItem();
 		botonMostrarCliente = new javax.swing.JMenuItem();
+		botonMostrarClientes = new javax.swing.JMenuItem();
+		botonMostrarClientesNReservas = new javax.swing.JMenuItem();
 		pestanaHabitacion = new javax.swing.JMenu();
 		botonNuevaHabitacion = new javax.swing.JMenuItem();
 		botonMostrarHabitacion = new javax.swing.JMenuItem();
+		botonMostrarHabitacionNReservas = new javax.swing.JMenuItem();
+
 		pestanaReserva = new javax.swing.JMenu();
 		botonNuevaReserva = new javax.swing.JMenuItem();
 		botonAnadirHabitacion = new javax.swing.JMenuItem();
@@ -118,6 +125,22 @@ public class PanelPrincipal extends javax.swing.JFrame {
 			}
 		});
 		pestanaCliente.add(botonMostrarCliente);
+		
+		botonMostrarClientes.setText("Mostrar Clientes");
+		botonMostrarClientes.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				botonMostrarClientesActionPerformed(evt);
+			}
+		});
+		pestanaCliente.add(botonMostrarClientes);
+
+		botonMostrarClientesNReservas.setText("Clientes N Reservas");
+		botonMostrarClientesNReservas.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				botonMostrarClientesNReservasActionPerformed(evt);
+			}
+		});
+		pestanaCliente.add(botonMostrarClientesNReservas);
 
 
 		jMenuBar1.add(pestanaCliente);
@@ -141,7 +164,13 @@ public class PanelPrincipal extends javax.swing.JFrame {
 				botonMostrarHabitacionActionPerformed(evt);
 			}
 		});
-
+		botonMostrarHabitacionNReservas.setText("Habitaciones N Reservas");
+		pestanaHabitacion.add(botonMostrarHabitacionNReservas);
+		botonMostrarHabitacionNReservas.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				botonMostrarHabitacionNReservasActionPerformed(evt);
+			}
+		});
 		
 		jMenuBar1.add(pestanaHabitacion);
 
@@ -347,6 +376,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
 	private void botonMostrarHabitacionActionPerformed(java.awt.event.ActionEvent evt) {
 		GUIMostrarHabitacion.obtenerInstancia().setVisible(true);
 	}
+	private void botonMostrarHabitacionNReservasActionPerformed(java.awt.event.ActionEvent evt) {
+		GUIMostrarHabitacionesNReservas.obtenerInstancia().setVisible(true);
+	}
 	
 	
 	//ACCIONES ClienteS
@@ -366,6 +398,13 @@ public class PanelPrincipal extends javax.swing.JFrame {
 		GUIMostrarCliente.obtenerInstancia().setVisible(true);
 	}
 	
+	private void botonMostrarClientesActionPerformed(java.awt.event.ActionEvent evt) {
+		GUIMostrarClientes.obtenerInstancia().mostrar();
+		GUIMostrarClientes.obtenerInstancia().setVisible(true);
+	}
+	private void botonMostrarClientesNReservasActionPerformed(java.awt.event.ActionEvent evt) {
+		GUIMostrarClientesNReservas.obtenerInstancia().setVisible(true);
+	}
 	
 	//ACCIONES ReservaS
 	private void botonNuevaReservaActionPerformed(java.awt.event.ActionEvent evt) {
@@ -492,7 +531,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
 	private javax.swing.JMenuItem botonMostrarEmpleados;
 	private javax.swing.JMenuItem botonMostrarReserva;
 	private javax.swing.JMenuItem botonMostrarHabitacion;
+	private javax.swing.JMenuItem botonMostrarHabitacionNReservas;
+
 	private javax.swing.JMenuItem botonMostrarCliente;
+	private javax.swing.JMenuItem botonMostrarClientes;
+	private javax.swing.JMenuItem botonMostrarClientesNReservas;
 	private javax.swing.JMenuItem botonMostrarTarea;
 	private javax.swing.JMenuItem botonMostrarTareas;
 	private javax.swing.JMenuItem botonNuevaReserva;

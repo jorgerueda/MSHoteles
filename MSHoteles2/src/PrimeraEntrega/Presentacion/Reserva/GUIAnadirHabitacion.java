@@ -22,7 +22,6 @@ import PrimeraEntrega.Presentacion.Dispatcher.EventoVista;
  */
 public class GUIAnadirHabitacion extends javax.swing.JFrame {
 
-    protected static final JLabel jFormattedTextFieldNumHabitacion = null;
 	/**
      * Creates new form GUIAnadirHabitacion
      */
@@ -73,6 +72,11 @@ public class GUIAnadirHabitacion extends javax.swing.JFrame {
         });
 
         jButtonAceptar.setText("Anadir");
+        jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	jButtonAceptarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -112,7 +116,7 @@ public class GUIAnadirHabitacion extends javax.swing.JFrame {
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
         		//Borra lo anterior
                 jFormattedTextFieldIDReserva.setText("");
-                jFormattedTextFieldNumHabitacion.setText("");
+                jFormattedTextFieldnumHabitacion.setText("");
            
         		
             }
@@ -124,7 +128,7 @@ public class GUIAnadirHabitacion extends javax.swing.JFrame {
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {  
       	 
     	TransferReserva transferReserva= new TransferReserva();    	
-    	transferReserva.setNumHabitacion(Integer.valueOf(jFormattedTextFieldNumHabitacion.getText()));
+    	transferReserva.setNumHabitacion(Integer.valueOf(jFormattedTextFieldnumHabitacion.getText()));
     	transferReserva.setID_Reserva(Integer.valueOf(jFormattedTextFieldIDReserva.getText()));
     	
          ControladorImp.getInstancia().execute(Evento.ANADIR_HABITACION, transferReserva);
@@ -180,7 +184,7 @@ public class GUIAnadirHabitacion extends javax.swing.JFrame {
     public void actualizar(int id_evento_vista, Object datos) {
     	//Borra lo anterior
         jFormattedTextFieldIDReserva.setText("");
-        jFormattedTextFieldNumHabitacion.setText("");
+        jFormattedTextFieldnumHabitacion.setText("");
 		
 		if(id_evento_vista == EventoVista.AÑADIR_HABITACION_EXITO){
 			JOptionPane.showMessageDialog(null, "Se ha anadido la habitacion con exito", "Anadir Habitacion", JOptionPane.INFORMATION_MESSAGE);		

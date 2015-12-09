@@ -281,13 +281,13 @@ public class GUIModificarCliente extends javax.swing.JFrame implements Vista {
          jFormattedTextFieldApellidos.setText("");
 		
 		if(id_evento_vista == EventoVista.MODIFICAR_CLIENTE_EXITO){
-			JOptionPane.showMessageDialog(null, "Se ha modificado el residente con exito", "Nuevo Residente", JOptionPane.INFORMATION_MESSAGE);		
+			JOptionPane.showMessageDialog(null, "Se ha modificado el Cliente con exito", "Modificar Cliente", JOptionPane.INFORMATION_MESSAGE);		
 		}	
 		else if(id_evento_vista == EventoVista.MODIFICAR_CLIENTE_NO_EXISTE){
-			JOptionPane.showMessageDialog(null, "ERROR!! El Cliente introducido no existe", "Nuevo Residente", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "ERROR!! El Cliente introducido no existe", "Modificar Cliente", JOptionPane.ERROR_MESSAGE);
 		}
 		else if (id_evento_vista == EventoVista.MODIFICAR_CLIENTE_FALLO){
-			JOptionPane.showMessageDialog(null, "ERROR!! Ha ocurrido un error con la BD", "Nuevo Residente", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "ERROR!! Ha ocurrido un error con la BD", "Modificar Cliente", JOptionPane.ERROR_MESSAGE);
 		}
 		
 	}

@@ -3,11 +3,15 @@
  */
 package PrimeraEntrega.Negocio.Habitacion.SA.Implementacion;
 
+import java.util.List;
+
 import PrimeraEntrega.Integracion.FactoriaDAO.FactoriaDAO;
 import PrimeraEntrega.Integracion.Habitacion.DAOHabitacion;
 import PrimeraEntrega.Integracion.Transaccion.Transaccion;
 import PrimeraEntrega.Integracion.TransactionManager.TransactionManager;
+import PrimeraEntrega.Integracion.query.factoriaQuery;
 import PrimeraEntrega.Negocio.Habitacion.SA.SAHabitacion;
+import PrimeraEntrega.Negocio.Transfer.TransferCliente;
 import PrimeraEntrega.Negocio.Transfer.TransferHabitacion;
 
 
@@ -110,7 +114,27 @@ public class SAHabitacionImp implements SAHabitacion {
 		return transferBuscado;
 	}
 
+	@Override
+	public List<TransferHabitacion> mostrarHabitacionNReservas(int Reservas) {
+		Transaccion transaccion = TransactionManager.getInstancia().nuevaTransaccion();
+		
+		transaccion.start();
+		
+		
+		
+		
+		//Ejecuta la Query
+		List<TransferHabitacion> lista_Habitaciones = (List<TransferHabitacion>) factoriaQuery.getInstance().getQuery(106).execute(Reservas);
+		
+		//En los mostrar para evitar bloqueos
+		transaccion.commit();
+		
+		//Elimina la transaccion
+		TransactionManager.getInstancia().eliminarTransaccion();
+		
 	
+		return lista_Habitaciones;
+	}
 
 	
 }
