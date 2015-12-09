@@ -19,12 +19,6 @@ import PrimeraEntrega.Presentacion.Reserva.GUIMostrarReserva;
 import PrimeraEntrega.Presentacion.Reserva.GUINuevaReserva;
 
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author Andrea
- * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
 public class DispatcherImp extends Dispatcher {
 
 	@Override
@@ -76,8 +70,8 @@ public class DispatcherImp extends Dispatcher {
 			case EventoVista.ALTA_RESERVA_EXITO: GUINuevaReserva.obtenerInstancia().actualizar(id_evento_vista, datos); break;
 			case EventoVista.ALTA_RESERVA_CLIENTE_NO_EXISTE: GUINuevaReserva.obtenerInstancia().actualizar(id_evento_vista, datos); break;
 			case EventoVista.ALTA_RESERVA_FALLO: GUINuevaReserva.obtenerInstancia().actualizar(id_evento_vista, datos); break;
-			case EventoVista.AÑADIR_HABITACION_EXITO: GUIAnadirHabitacion.obtenerInstancia().actualizar(id_evento_vista, datos); break;
-			case EventoVista.AÑADIR_HABITACION_FALLO: GUIAnadirHabitacion.obtenerInstancia().actualizar(id_evento_vista, datos); break;
+			case EventoVista.ADD_HABITACION_EXITO: GUIAnadirHabitacion.obtenerInstancia().actualizar(id_evento_vista, datos); break;
+			case EventoVista.ADD_HABITACION_FALLO: GUIAnadirHabitacion.obtenerInstancia().actualizar(id_evento_vista, datos); break;
 			case EventoVista.QUITAR_HABITACION_EXITO: GUIAnadirHabitacion.obtenerInstancia().actualizar(id_evento_vista, datos); break;
 			case EventoVista.QUITAR_HABITACION_FALLO: GUIAnadirHabitacion.obtenerInstancia().actualizar(id_evento_vista, datos); break;
 			case EventoVista.MOSTRAR_RESERVA_EXITO: GUIMostrarReserva.obtenerInstancia().actualizar(id_evento_vista, datos); break;

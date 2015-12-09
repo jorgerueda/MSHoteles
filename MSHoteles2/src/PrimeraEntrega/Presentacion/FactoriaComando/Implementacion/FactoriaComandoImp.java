@@ -23,12 +23,6 @@ import PrimeraEntrega.Presentacion.Controlador.Evento;
 import PrimeraEntrega.Presentacion.FactoriaComando.FactoriaComando;
 
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author Andrea
- * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
 
 public class FactoriaComandoImp extends FactoriaComando {
 	
@@ -57,13 +51,7 @@ public class FactoriaComandoImp extends FactoriaComando {
 		case Evento.MOSTRAR_RESERVA: comando = new comandoMostrarReserva(); break;
 		case Evento.ANADIR_HABITACION: comando = new comandoAnadirHabitacion(); break;
 		case Evento.QUITAR_HABITACION: comando = new comandoQuitarHabitacion(); break;
-		//case Evento.MOSTRAR_HABITACION_N_RESERVAS: comando = new comandoMostrarHabitacionNReservas(); break;
-
-		
-
-		}
-		
+		}		
 		return comando;
 	}
-
 }

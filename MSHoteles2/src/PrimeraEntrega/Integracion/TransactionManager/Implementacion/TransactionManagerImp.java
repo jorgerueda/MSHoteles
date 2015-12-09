@@ -1,22 +1,9 @@
 package PrimeraEntrega.Integracion.TransactionManager.Implementacion;
-
 import java.util.concurrent.ConcurrentHashMap;
 
-import PrimeraEntrega.Integracion.FactoriaTransaccion.FactoriaTransaccion;
 import PrimeraEntrega.Integracion.Transaccion.Transaccion;
 import PrimeraEntrega.Integracion.Transaccion.TransaccionMYSQL.TransaccionMYSQL;
 import PrimeraEntrega.Integracion.TransactionManager.TransactionManager;
-
-/**
- * 
- */
-
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author Héctor
- * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
 
 	public class TransactionManagerImp extends TransactionManager {
 		ConcurrentHashMap<Thread, Transaccion> myConcurrentHashMap;
@@ -46,12 +33,6 @@ import PrimeraEntrega.Integracion.TransactionManager.TransactionManager;
 			Transaccion TransaccionReturned = myConcurrentHashMap.get(Thread
 					.currentThread());
 		
-			return TransaccionReturned;
-		}
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
-
+		return TransaccionReturned;
+	}
 }

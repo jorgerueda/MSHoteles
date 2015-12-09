@@ -24,7 +24,6 @@ public class comandoMostrarHabitacion extends Comando {
 	 */
 	@Override
 	public RetornoComando execute() {
-		//crea el servicio de habitaciones, lo crea utilizando una f�brica
 		SAHabitacion saHabitacion = FactoriaSA.getInstancia().generaSAHabitacion();
 		
 		TransferHabitacion transferHabitacion = saHabitacion.mostrarHabitacion((int)datos);

@@ -22,7 +22,6 @@ public class comandoAltaHabitacion extends Comando{
 	public RetornoComando execute() {
 		int id;
 		
-		//crea el servicio de departamentos, lo crea utilizando una f�brica
 		SAHabitacion saHabitacion = FactoriaSA.getInstancia().generaSAHabitacion();
 		
 		TransferHabitacion transferHabitacion = (TransferHabitacion)datos; //hacemos casting de los datos del comando

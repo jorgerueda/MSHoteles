@@ -12,7 +12,6 @@ import PrimeraEntrega.Integracion.query.Query;
 
 public class queryHabitacion implements Query {
 	public Object execute(int param) {
-		// TODO Auto-generated method stub
 		ArrayList<TransferHabitacion> ret = new ArrayList<TransferHabitacion>();
 		TransferHabitacion transfer = new TransferHabitacion();
 		ResultSet rs;
@@ -32,7 +31,6 @@ public class queryHabitacion implements Query {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		// end-user-code
 		return ret;
 	}
 

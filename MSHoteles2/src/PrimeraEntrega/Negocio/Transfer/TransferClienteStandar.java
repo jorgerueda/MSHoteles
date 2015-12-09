@@ -5,7 +5,6 @@ public class TransferClienteStandar extends TransferCliente {
 	private int puntosAcumulados;
 
 	public TransferClienteStandar(){
-		//Constructor de la clase residente estudiante
 		super();
 	}
 

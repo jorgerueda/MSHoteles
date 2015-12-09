@@ -25,7 +25,6 @@ public class comandoMostrarCliente extends Comando {
 	 */
 	@Override
 	public RetornoComando execute() {
-		//crea el servicio de habitaciones, lo crea utilizando una f�brica
 		SACliente saCliente = FactoriaSA.getInstancia().generaSACliente();
 		
 		TransferCliente transferCliente = saCliente.mostrarCliente((String)datos);

@@ -22,7 +22,6 @@ public class comandoNuevaReserva extends Comando{
 	public RetornoComando execute() {
 		int id;
 		
-		//crea el servicio de departamentos, lo crea utilizando una f�brica
 		SAReserva saReserva = FactoriaSA.getInstancia().generaSAReserva();
 		
 		TransferReserva transferReserva = (TransferReserva)datos; //hacemos casting de los datos del comando

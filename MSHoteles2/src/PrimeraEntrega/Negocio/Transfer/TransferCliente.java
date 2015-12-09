@@ -6,12 +6,7 @@ package PrimeraEntrega.Negocio.Transfer;
 import java.util.ArrayList;
 import java.util.List;
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author Andrea
- * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
+
 public class TransferCliente {
 	
 	protected int ID_Cliente;
@@ -33,19 +28,12 @@ public class TransferCliente {
 		
 		activo = true; //Se crea estando activo
 	}
-	/** 
-	 * @return el ID_Cliente
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
+
 	public int getID_Cliente() {
 		
 		return this.ID_Cliente;
 	}
 
-	/** 
-	 * @param ID_Cliente el ID_Cliente a establecer
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
 	public void setID_Cliente(int ID_Cliente) {
 		// begin-user-code
 		this.ID_Cliente = ID_Cliente;

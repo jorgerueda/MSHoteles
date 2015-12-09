@@ -12,7 +12,6 @@ import PrimeraEntrega.Presentacion.Dispatcher.EventoVista;
 public class comandoMostrarClientesNReservas extends Comando {
 	@Override
 	public RetornoComando execute() {
-		//crea el servicio de habitaciones, lo crea utilizando una f�brica
 		SACliente saCliente = FactoriaSA.getInstancia().generaSACliente();
 		
 		List<TransferCliente> lista_clientesNReservas = saCliente.mostrarClienteNReservas((int) datos);

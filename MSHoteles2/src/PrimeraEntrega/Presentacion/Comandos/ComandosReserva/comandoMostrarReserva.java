@@ -20,7 +20,7 @@ public class comandoMostrarReserva extends Comando {
 
 	@Override
 	public RetornoComando execute() {
-	//crea el servicio de habitaciones, lo crea utilizando una f�brica
+
 	SAReserva saReserva = FactoriaSA.getInstancia().generaSAReserva();
 	
 	TransferReserva transferReserva = saReserva.mostrarReserva((int)datos);

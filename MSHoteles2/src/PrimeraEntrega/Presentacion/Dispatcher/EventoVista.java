@@ -4,7 +4,7 @@ public class EventoVista {
 	
 	//PRIMERA ENTREGA
 	
-		//EVENTOS DE �XITO
+		//EVENTOS DE EXITO
 		
 		public final static int ALTA_HABITACION_EXITO = 1010;
 		public final static int BAJA_HABITACION_EXITO = 1020;
@@ -27,7 +27,7 @@ public class EventoVista {
 		public final static int MODIFICAR_RESERVA_EXITO = 3030;
 		public final static int MOSTRAR_RESERVA_EXITO = 3040;
 		public final static int MOSTRAR_RESERVAS_EXITO = 3050;
-		public final static int AÑADIR_HABITACION_EXITO = 3060;
+		public final static int ADD_HABITACION_EXITO = 3060;
 		public final static int QUITAR_HABITACION_EXITO = 3070;
 
 		
@@ -54,7 +54,7 @@ public class EventoVista {
 		public final static int MODIFICAR_RESERVA_FALLO = 3031;
 		public final static int MOSTRAR_RESERVA_FALLO = 3041;
 		public final static int MOSTRAR_RESERVAS_FALLO = 3051;
-		public final static int AÑADIR_HABITACION_FALLO = 3061;
+		public final static int ADD_HABITACION_FALLO = 3061;
 		public final static int QUITAR_HABITACION_FALLO = 3071;
 		
 		//EVENTOS DE FLUJO ALTERNATIVO

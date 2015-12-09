@@ -21,7 +21,6 @@ public class comandoBajaCliente extends Comando {
 	public RetornoComando execute() {
 		String dni;
 		
-		//crea el servicio de clientes, lo crea utilizando una f�brica
 		SACliente saCliente = FactoriaSA.getInstancia().generaSACliente();
 		
 		dni = (String)datos; //hacemos casting de los datos del comando

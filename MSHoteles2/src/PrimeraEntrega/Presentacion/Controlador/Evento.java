@@ -3,18 +3,12 @@
  */
 package PrimeraEntrega.Presentacion.Controlador;
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author Andrea
- * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
 public class Evento {
 	/*
 	 * Sintaxis evento :
 	 * #######################
 	 * 
-	 * - el primer n�mero indica el modulos de la aplicaci�n
+	 * - el primer numero indica el modulos de la aplicacion
 	 * 
 	 * 
 	 */

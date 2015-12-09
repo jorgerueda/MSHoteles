@@ -8,12 +8,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author Andrea
- * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
+
 public class TransaccionMYSQL implements Transaccion {
 
 	private Connection connection;
@@ -24,13 +19,13 @@ public class TransaccionMYSQL implements Transaccion {
 	        	   
 	        	 //Driver JDBC
 	               Class.forName("com.mysql.jdbc.Driver");
-	               //Nombre del servidor. localhost:3306 es la ruta y el puerto de la conexión MySQL
+	               //Nombre del servidor. localhost:3306 es la ruta y el puerto de la conexion MySQL
 	               //panamahitek_text es el nombre que le dimos a la base de datos
 	               String servidor = "jdbc:mysql://localhost:3306/mshoteles";
-	               //El root es el nombre de usuario por default. No hay contraseña
+	               //El root es el nombre de usuario por default. No hay pass
 	               String usuario = "root";
 	               String pass = "";
-	               //Se inicia la conexión
+	               //Se inicia la conexion
 	               	connection = DriverManager.getConnection(servidor, usuario, pass);
 	                connection.setAutoCommit(false);
 	                

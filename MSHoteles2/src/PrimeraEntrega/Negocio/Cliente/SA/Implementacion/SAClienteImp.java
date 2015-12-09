@@ -15,7 +15,6 @@ import PrimeraEntrega.Integracion.Habitacion.DAOHabitacion;
 import PrimeraEntrega.Integracion.Reserva.DAOReserva;
 import PrimeraEntrega.Integracion.Transaccion.Transaccion;
 import PrimeraEntrega.Integracion.TransactionManager.TransactionManager;
-import PrimeraEntrega.Integracion.query.Query;
 import PrimeraEntrega.Integracion.query.factoriaQuery;
 
 
@@ -24,10 +23,10 @@ public class SAClienteImp implements SACliente {
 
 	public int altaCliente(TransferCliente TCliente) {
 		
-				//Siempre deber�a cambiarse este valor
+				//Siempre deberia cambiarse este valor
 				int valorDevuelto = 0;
 				
-				//Obtiene una transacci�n y la empieza
+				//Obtiene una transaccion y la empieza
 				Transaccion transaccion = TransactionManager.getInstancia().nuevaTransaccion();
 					
 				transaccion.start();
@@ -37,14 +36,14 @@ public class SAClienteImp implements SACliente {
 					
 				int id_cliente = daoCliente.getId(TCliente.getDni());
 				
-				//Comprobaci�n de si existe ese Clientecon ese id
+				//Comprobacion de si existe ese Cliente con ese id
 				TransferCliente transferBuscadoCliente = daoCliente.mostrarCliente(id_cliente);
 			
 				if((transferBuscadoCliente!= null)&&(transferBuscadoCliente.getDni().equals(TCliente.getDni()))&&(transferBuscadoCliente.isActivo())){
 					
 					//Ese Cliente ya existe
 					
-					//Actualizamos el id del transfer con el que ya ten�a
+					//Actualizamos el id del transfer con el que ya tenia
 					transferBuscadoCliente.setID_Cliente(id_cliente);
 							
 					valorDevuelto = -1;
@@ -52,7 +51,7 @@ public class SAClienteImp implements SACliente {
 					
 				}else{
 					
-					//este if se ejecuta solo si no est� activo el Cliente
+					//este if se ejecuta solo si no esta activo el Cliente
 					if(transferBuscadoCliente != null){
 						
 						TCliente.setID_Cliente(transferBuscadoCliente.getID_Cliente());
@@ -78,22 +77,22 @@ public class SAClienteImp implements SACliente {
 
 
 	public int bajaCliente(String dni) {
-		//Siempre deber�a cambiarse este valor
+		//Siempre deberia cambiarse este valor
 				int valorDevuelto = 0;
 				
-				//Obtiene una transacci�n y la empieza
+				//Obtiene una transaccion y la empieza
 				Transaccion transaccion = TransactionManager.getInstancia().nuevaTransaccion();
 					
 				transaccion.start();
 					
 				DAOCliente daoCliente = FactoriaDAO.getInstance().getDAOCliente();
 				
-				//para liberar  habitaci�n
+				//para liberar  habitacion
 				DAOHabitacion daoHabitacion = FactoriaDAO.getInstance().getDAOHabitacion();
 					
 				int id_cliente = daoCliente.getId(dni);
 				
-				//Comprobaci�n de si existe ese Cliente con ese id
+				//Comprobacion de si existe ese Cliente con ese id
 				TransferCliente transferBuscadoCliente = daoCliente.mostrarCliente(id_cliente);
 			
 				if((transferBuscadoCliente != null)&&(transferBuscadoCliente.getDni().equals(dni))){
@@ -114,7 +113,7 @@ public class SAClienteImp implements SACliente {
 							DAOReserva daoReserva = FactoriaDAO.getInstance().getDAOReserva();
 							//Se obtiene la ids de las reservas
 							for (Integer idReserva:transferBuscadoCliente.getId_reservas_cliente()){
-								//Comprobaci�n de si existe esa reserva con ese id
+								//Comprobacion de si existe esa reserva con ese id
 								 daoReserva.eliminarReserva(idReserva);
 								
 							}
@@ -156,13 +155,9 @@ public class SAClienteImp implements SACliente {
 		
 		TransferCliente transferBuscado = daoCliente.mostrarCliente(daoCliente.getId(dni));
 		
-		//Si no est� activa, es como si no la encuentra
+		//Si no esta activa, es como si no la encuentra
 		
 		if(transferBuscado != null){
-			
-			//mostrar los id de reservas?
-			//transferBuscado.setNum_hab((daoHabitacion.buscarHabitacion(transferBuscado.getNum_hab())).getNumero_hab());
-			
 			if(!transferBuscado.isActivo()){
 				transferBuscado = null;
 			}
@@ -177,19 +172,12 @@ public class SAClienteImp implements SACliente {
 		return transferBuscado;
 	}
 	
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @return 
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
 	public int modificarCliente(TransferCliente transferClienteInformacionNueva) {
 
-				//Siempre deber�a cambiarse este valor
+				//Siempre deberia cambiarse este valor
 				int valorDevuelto = 0;
 				
-				//Obtiene una transacci�n y la empieza
+				//Obtiene una transaccion y la empieza
 				Transaccion transaccion = TransactionManager.getInstancia().nuevaTransaccion();
 					
 				transaccion.start();
@@ -198,12 +186,12 @@ public class SAClienteImp implements SACliente {
 				
 				int id_cliente = daoCliente.getId(transferClienteInformacionNueva.getDni());
 				
-				//Comprobaci�n de si existe ese Cliente con ese id
+				//Comprobacion de si existe ese Cliente con ese id
 				TransferCliente transferBuscadoCliente = daoCliente.mostrarCliente(id_cliente);
 			
 				if((transferBuscadoCliente != null)&&(transferBuscadoCliente.getDni().equals(transferClienteInformacionNueva.getDni()))){
 					
-					//Comprueba si el Cliente est� activo
+					//Comprueba si el Cliente esta activo
 					if(transferBuscadoCliente.isActivo()){
 						transferClienteInformacionNueva.setID_Cliente(id_cliente); //se introduce el id al transfer
 						
@@ -221,7 +209,7 @@ public class SAClienteImp implements SACliente {
 						}
 					}
 					else{
-						//El Cliente no est� activo	
+						//El Cliente no esta activo	
 						valorDevuelto = -1; 
 						transaccion.rollback();
 					}
@@ -235,21 +223,12 @@ public class SAClienteImp implements SACliente {
 				return valorDevuelto;
 	}
 
-	/** 
-	 * (sin Javadoc)
-	 * @return 
-	 * @see SACliente#mostrarClientes()
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
 	public List<TransferCliente> mostrarClientes() {
-		//Obtiene una transacci�n y la empieza
+		//Obtiene una transaccion y la empieza
 				Transaccion transaccion = TransactionManager.getInstancia().nuevaTransaccion();
 				
 				transaccion.start();
 				DAOCliente daoCliente = FactoriaDAO.getInstance().getDAOCliente();
-				
-				
-				
 				
 				//Ejecuta la Query
 				List<TransferCliente> lista_Clientes = daoCliente.mostrarClientes();
@@ -269,9 +248,6 @@ public class SAClienteImp implements SACliente {
 		Transaccion transaccion = TransactionManager.getInstancia().nuevaTransaccion();
 		
 		transaccion.start();
-		
-		
-		
 		
 		//Ejecuta la Query
 		List<TransferCliente> lista_Clientes = (List<TransferCliente>) factoriaQuery.getInstance().getQuery(206).execute(Reservas);

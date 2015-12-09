@@ -11,26 +11,19 @@ import PrimeraEntrega.Integracion.Transaccion.Transaccion;
 import PrimeraEntrega.Integracion.TransactionManager.TransactionManager;
 import PrimeraEntrega.Integracion.query.factoriaQuery;
 import PrimeraEntrega.Negocio.Habitacion.SA.SAHabitacion;
-import PrimeraEntrega.Negocio.Transfer.TransferCliente;
 import PrimeraEntrega.Negocio.Transfer.TransferHabitacion;
 
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author Andrea
- * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
 public class SAHabitacionImp implements SAHabitacion {
 
 	public int altaHabitacion(TransferHabitacion THabitacion) {
 		
 
-		//Siempre deber�a cambiarse este valor
+		//Siempre deberia cambiarse este valor
 		int valorDevuelto = 0;
 		
 	
-			//Obtiene una transacci�n y la empieza
+			//Obtiene una transaccion y la empieza
 			Transaccion transaccion = TransactionManager.getInstancia().nuevaTransaccion();
 			
 			transaccion.start();
@@ -39,12 +32,12 @@ public class SAHabitacionImp implements SAHabitacion {
 			
 			int id_hab = daoHabitacion.getId(THabitacion.getNumero());
 			
-			//Comprobaci�n de si existe esa habitaci�n con ese id
+			//Comprobacion de si existe esa habitacion con ese id
 			TransferHabitacion transferBuscado = daoHabitacion.mostrarHabitacion(id_hab);
 		
 			if((transferBuscado != null)&&(transferBuscado.getNumero() == THabitacion.getNumero())){
 				
-				//Actualizamos el id del transfer con el que ya ten�a
+				//Actualizamos el id del transfer con el que ya tenia
 				transferBuscado.setId(id_hab);
 				
 				//Si no esta activo, lo activa
@@ -59,7 +52,7 @@ public class SAHabitacionImp implements SAHabitacion {
 					}
 				}
 				else{
-					//Existe y est� activo 
+					//Existe y esta activo 
 					valorDevuelto = -1;
 					transaccion.rollback();
 				}
@@ -97,7 +90,7 @@ public class SAHabitacionImp implements SAHabitacion {
 		
 		TransferHabitacion transferBuscado = daoHabitacion.mostrarHabitacion(daoHabitacion.getId(num_habitacion));
 		
-		//Si no est� activa, es como si no la encuentra
+		//Si no esta activa, es como si no la encuentra
 		
 		if(transferBuscado != null){
 			if(!transferBuscado.isActivo()){

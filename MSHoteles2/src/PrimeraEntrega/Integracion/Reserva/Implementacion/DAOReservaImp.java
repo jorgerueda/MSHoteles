@@ -8,22 +8,14 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 import PrimeraEntrega.Integracion.Reserva.DAOReserva;
 import PrimeraEntrega.Integracion.Transaccion.Transaccion;
 import PrimeraEntrega.Integracion.TransactionManager.TransactionManager;
-import PrimeraEntrega.Negocio.Transfer.TransferCliente;
-import PrimeraEntrega.Negocio.Transfer.TransferHabitacion;
 import PrimeraEntrega.Negocio.Transfer.TransferReserva;
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author Andrea
- * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
+
 public class DAOReservaImp implements DAOReserva {
 
 	@Override
@@ -35,7 +27,7 @@ public class DAOReservaImp implements DAOReserva {
 
 				Connection connection = (Connection) transaction.getResource();
 				
-				//Si no esta activada y tiene id, es decir, que ya exist�a
+				//Si no esta activada y tiene id, es decir, que ya existia
 				//Se hace Update
 				if((!TReserva.isActivo()&&TReserva.getID_Reserva() >= 0)){
 					
@@ -114,8 +106,6 @@ public class DAOReservaImp implements DAOReserva {
 
 		Connection connection = (Connection) transaction.getResource();
 		
-		//Si no esta activada y tiene id, es decir, que ya exist�a
-		//Se hace Update
 		if((TReserva.getID_Reserva() >= 0)){
 			
 			PreparedStatement statementPrepared;
@@ -146,9 +136,7 @@ public class DAOReservaImp implements DAOReserva {
 		Transaccion transaction = TransactionManager.getInstancia().getTransaccion();
 
 		Connection connection = (Connection) transaction.getResource();
-		
-		//Si no esta activada y tiene id, es decir, que ya exist�a
-		//Se hace Update
+
 		if((TReserva.getID_Reserva() >= 0)){
 			
 			PreparedStatement statementPrepared;
@@ -198,7 +186,7 @@ public class DAOReservaImp implements DAOReserva {
 				TReserva = new TransferReserva();
 				TReserva.setID_Reserva(id);
 
-				//Aplica los datos que hab�a en la BD al transfer
+				//Aplica los datos que habia en la BD al transfer
 				TReserva.setPrecio(rs.getFloat("Precio"));
 				TReserva.setFechaEntrada(rs.getDate("FechaEntrada"));	
 				TReserva.setFechaSalida(rs.getDate("FechaSalida"));
@@ -307,7 +295,6 @@ public class DAOReservaImp implements DAOReserva {
 			System.err.println("Esa Reserva no tiene habitaciones");
 
 		}
-		// end-user-code
 		return ret;
 	}
 	

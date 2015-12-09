@@ -22,8 +22,6 @@ public class comandoAltaCliente extends Comando{
 	@Override
 	public RetornoComando execute() {
 		int id;
-		
-		//crea el servicio de departamentos, lo crea utilizando una f�brica
 		SACliente saCliente = FactoriaSA.getInstancia().generaSACliente();
 		
 		TransferCliente transferCliente = (TransferCliente)datos; //hacemos casting de los datos del comando

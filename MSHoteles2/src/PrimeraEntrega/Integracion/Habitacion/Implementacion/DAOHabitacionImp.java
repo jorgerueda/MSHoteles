@@ -13,18 +13,9 @@ import PrimeraEntrega.Integracion.Transaccion.Transaccion;
 import PrimeraEntrega.Integracion.TransactionManager.TransactionManager;
 import PrimeraEntrega.Negocio.Transfer.TransferHabitacion;
 
-/** 
- * <!-- begin-UML-doc -->
- * <!-- end-UML-doc -->
- * @author Andrea
- * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
- */
+
 public class DAOHabitacionImp implements DAOHabitacion {
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
-	 */
+
 	public int altaHabitacion(TransferHabitacion THabitacion) {
 		//Si no se cambia el valor, devuelve error
 		int valorDevuelto = -1;
@@ -33,7 +24,7 @@ public class DAOHabitacionImp implements DAOHabitacion {
 
 		Connection connection = (Connection) transaction.getResource();
 		
-		//Si no esta activada y tiene id, es decir, que ya exist�a
+		//Si no esta activada y tiene id, es decir, que ya existia
 		//Se hace Update
 		if((!THabitacion.isActivo()&&THabitacion.getID_Habitacion() >= 0)){
 			
@@ -123,7 +114,7 @@ public class DAOHabitacionImp implements DAOHabitacion {
 			if((rs != null)&&(resultadoConsulta)){					
 				THabitacion= new TransferHabitacion();
 				THabitacion.setId(id_hab);
-				//Aplica los datos que hab�a en la BD al transfer
+				//Aplica los datos que habia en la BD al transfer
 				THabitacion.setPiso(rs.getInt("Piso"));	
 				THabitacion.setNumero(rs.getInt("Numero"));
 				THabitacion.setOcupado(rs.getBoolean("Ocupado"));

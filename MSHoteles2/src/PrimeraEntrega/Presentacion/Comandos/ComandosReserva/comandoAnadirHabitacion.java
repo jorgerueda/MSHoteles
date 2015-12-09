@@ -22,7 +22,6 @@ public class comandoAnadirHabitacion extends Comando {
 	public RetornoComando execute() {
 		int id;
 		
-		//crea el servicio de departamentos, lo crea utilizando una f�brica
 		SAReserva saReserva = FactoriaSA.getInstancia().generaSAReserva();
 		
 		TransferReserva transferReserva = (TransferReserva)datos; //hacemos casting de los datos del comando
@@ -32,11 +31,11 @@ public class comandoAnadirHabitacion extends Comando {
 		RetornoComando retornoComando;
 
 		if(id >= 0){
-			retornoComando = new RetornoComando(EventoVista.AÑADIR_HABITACION_EXITO,id); //crea la respuesta de comando
+			retornoComando = new RetornoComando(EventoVista.ADD_HABITACION_EXITO,id); //crea la respuesta de comando
 		}
 		
 		else{
-			retornoComando = new RetornoComando(EventoVista.AÑADIR_HABITACION_FALLO,id); //crea la respuesta de comando
+			retornoComando = new RetornoComando(EventoVista.ADD_HABITACION_FALLO,id); //crea la respuesta de comando
 		}
 		return retornoComando;
 	}

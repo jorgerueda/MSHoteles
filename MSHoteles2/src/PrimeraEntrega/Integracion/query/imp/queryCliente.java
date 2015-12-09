@@ -13,7 +13,6 @@ import PrimeraEntrega.Integracion.query.Query;
 public class queryCliente implements Query {
 
 	public Object execute(int param) {
-		// TODO Auto-generated method stub
 		ArrayList<TransferCliente> ret = new ArrayList<TransferCliente>();
 		ResultSet rs;
 		Statement s;
@@ -33,7 +32,6 @@ public class queryCliente implements Query {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		// end-user-code
 		return ret;
 	}
 
