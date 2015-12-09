@@ -55,6 +55,9 @@ public class GUINuevaReserva extends javax.swing.JFrame {
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+		
+		jFormattedTextFieldNumOcupantes.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(
+				new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
 		jLabelPrecio.setText("Precio");
 
 		jLabelFechaEntrada.setText("Fecha de Entrada");
@@ -269,7 +272,7 @@ public class GUINuevaReserva extends javax.swing.JFrame {
 			JOptionPane.showMessageDialog(null, "ERROR!! El Cliente introducido no existe", "Nuevo REserva",
 					JOptionPane.ERROR_MESSAGE);
 		} else if (id_evento_vista == EventoVista.ALTA_RESERVA_FALLO) {
-			JOptionPane.showMessageDialog(null, "ERROR!! Ha ocurrido un error con la BD", "Nuevo Residente",
+			JOptionPane.showMessageDialog(null, "ERROR!! Ha ocurrido un error con la BD", "Nuevo Reserva",
 					JOptionPane.ERROR_MESSAGE);
 		}
 

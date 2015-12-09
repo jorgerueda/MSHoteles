@@ -62,6 +62,9 @@ public class GUIAltaCliente extends javax.swing.JFrame implements Vista {
 				jRadioButtonTipoActionPerformed(evt);
 			}
 		});
+		
+		jFormattedTextFieldPuntos.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(
+				new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
 		jFormattedTextFieldDescuento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(
 				new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
 		jFormattedTextFieldDescuento.setEnabled(false);

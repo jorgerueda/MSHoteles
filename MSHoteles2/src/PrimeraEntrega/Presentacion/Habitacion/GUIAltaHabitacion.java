@@ -46,6 +46,10 @@ public class GUIAltaHabitacion extends javax.swing.JFrame implements Vista {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        jFormattedTextFieldNumero.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(
+				new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
+        jFormattedTextFieldPiso.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(
+				new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
         jLabelPiso.setText("Piso");
 
         jLabelNumero.setText("Numero");
